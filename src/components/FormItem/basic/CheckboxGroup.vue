@@ -1,6 +1,7 @@
 <template>
   <el-checkbox-group
     v-bind="$attrs"
+    :value="value || []"
     @input="(val) => $emit('input', val)"
   >
     <el-checkbox
@@ -16,8 +17,7 @@
 <script>
 export default {
   props: [
-    // eslint-disable-next-line vue/require-prop-types
-    'options'
+    'options', 'value'
   ],
   data() {
     return {

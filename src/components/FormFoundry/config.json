@@ -23,7 +23,6 @@
     {
       "type": "checkbox-group",
       "title": "复选框",
-      "defaultValue": [],
       "options": [
         {"key": "option1", "value": "选项1"},
         "option2"
@@ -32,54 +31,78 @@
     {
       "type": "radio-group",
       "title": "单选框",
-      "defaultValue": "option1",
       "options": [
         {"key": "option1", "value": "选项1"},
         "option2"
       ]
+    },
+    {
+      "type": "dynamic",
+      "title": "动态组件",
+      "component": ""
     }
   ],
   "props": {
-    "input": ["basic"],
-    "number": ["basic"],
-    "textarea": ["basic"],
-    "select": ["basic", "select"],
-    "checkbox-group": ["basic", "select"],
-    "radio-group": ["basic", "select"]
-  },
-  "defines": {
-    "basic": [
-      {
-        "type": "input",
-        "title": "标题",
-        "key": "title"
-      },
-      {
-        "type": "input",
-        "title": "字段索引",
-        "key": "key"
-      },
-      {
-        "type": "input",
-        "title": "占位内容",
-        "key": "placeholder"
-      },
-      {
-        "type": "input",
-        "title": "默认值",
-        "key": "defaultValue"
-      },
-      {
-        "type": "custom",
-        "title": "条件禁用",
-        "key": "disabled"
-      }
+    "input": [
+      "basic", "placeholder", "defaultValue"
+    ],
+    "number": [
+      "basic", "placeholder", "defaultValueNumber"
+    ],
+    "textarea": [
+      "basic", "placeholder", "defaultValue"
     ],
     "select": [
-      {
-        "type": "input",
-        "title": "选项"
-      }
+      "basic", "placeholder", "defaultValue"
+    ],
+    "checkbox-group": [
+      "basic", "defaultValueArray"
+    ],
+    "radio-group": [
+      "basic", "defaultValue"
     ]
-  }
+  },
+  "defines": [
+    {
+      "type": "input",
+      "title": "标题",
+      "key": "title",
+      "tag": "basic"
+    },
+    {
+      "type": "input",
+      "title": "字段索引",
+      "key": "key",
+      "tag": "basic"
+    },
+    {
+      "type": "input",
+      "title": "占位内容",
+      "key": "placeholder",
+      "tag": "placeholder"
+    },
+    {
+      "type": "input",
+      "title": "默认值",
+      "key": "defaultValue",
+      "tag": "defaultValue"
+    },
+    {
+      "type": "checkbox-group",
+      "title": "默认值",
+      "key": "defaultValue",
+      "tag": "defaultValueArray"
+    },
+    {
+      "type": "number",
+      "title": "默认值",
+      "key": "defaultValue",
+      "tag": "defaultValueNumber"
+    },
+    {
+      "type": "dynamic",
+      "title": "选项",
+      "key": "options"
+    }
+  ]
 }

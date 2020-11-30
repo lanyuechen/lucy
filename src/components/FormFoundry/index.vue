@@ -108,7 +108,7 @@ export default {
         return;
       }
       const props = this.props[c.type] || [];
-      return props.reduce((p, n) => p.concat(this.defines[n]), []);
+      return this.defines.filter(d => props.includes(d.tag));
     }
   },
   methods: {

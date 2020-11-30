@@ -28,6 +28,7 @@ export default {
 
     // 高级组件
     'ff-custom': require('@/components/FormItem/advance/Custom').default,
+    'ff-dynamic': require('@/components/FormItem/advance/Dynamic').default,
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types
@@ -57,7 +58,9 @@ export default {
     }
   },
   mounted() {
-    this.$emit('input', this.config.defaultValue);
+    if (typeof this.config.defaultValue !== 'undefined') {
+      this.$emit('input', this.config.defaultValue);
+    }
   },
   methods: {
   }
