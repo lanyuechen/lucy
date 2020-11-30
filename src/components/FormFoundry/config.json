@@ -1,0 +1,84 @@
+{
+  "components": [
+    {
+      "type": "input",
+      "title": "单行文本"
+    },
+    {
+      "type": "number",
+      "title": "数字"
+    },
+    {
+      "type": "textarea",
+      "title": "多行文本"
+    },
+    {
+      "type": "select",
+      "title": "下拉框",
+      "options": [
+        "option1",
+        "option2"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "title": "复选框",
+      "defaultValue": [],
+      "options": [
+        {"key": "option1", "value": "选项1"},
+        "option2"
+      ]
+    },
+    {
+      "type": "radio",
+      "title": "单选框",
+      "defaultValue": "option1",
+      "options": [
+        {"key": "option1", "value": "选项1"},
+        "option2"
+      ]
+    }
+  ],
+  "props": {
+    "input": ["basic"],
+    "number": ["basic"],
+    "textarea": ["basic"],
+    "select": ["basic", "select"],
+    "checkbox": ["basic", "select"]
+  },
+  "defines": {
+    "basic": [
+      {
+        "type": "input",
+        "title": "标题",
+        "key": "title"
+      },
+      {
+        "type": "input",
+        "title": "字段索引",
+        "key": "key"
+      },
+      {
+        "type": "input",
+        "title": "占位内容",
+        "key": "placeholder"
+      },
+      {
+        "type": "input",
+        "title": "默认值",
+        "key": "defaultValue"
+      },
+      {
+        "type": "textarea",
+        "title": "条件禁用",
+        "key": "disabled"
+      }
+    ],
+    "select": [
+      {
+        "type": "input",
+        "title": "选项"
+      }
+    ]
+  }
+}

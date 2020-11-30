@@ -13,7 +13,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "element-ui": "^2.14.1",
+    "vue": "^2.5.2",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -55,6 +57,8 @@
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
+    "sass": "^1.29.0",
+    "sass-loader": "^7.3.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
