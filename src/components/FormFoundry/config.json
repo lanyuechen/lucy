@@ -21,7 +21,7 @@
       ]
     },
     {
-      "type": "checkbox",
+      "type": "checkbox-group",
       "title": "复选框",
       "defaultValue": [],
       "options": [
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "type": "radio",
+      "type": "radio-group",
       "title": "单选框",
       "defaultValue": "option1",
       "options": [
@@ -44,7 +44,8 @@
     "number": ["basic"],
     "textarea": ["basic"],
     "select": ["basic", "select"],
-    "checkbox": ["basic", "select"]
+    "checkbox-group": ["basic", "select"],
+    "radio-group": ["basic", "select"]
   },
   "defines": {
     "basic": [
@@ -69,7 +70,7 @@
         "key": "defaultValue"
       },
       {
-        "type": "textarea",
+        "type": "custom",
         "title": "条件禁用",
         "key": "disabled"
       }

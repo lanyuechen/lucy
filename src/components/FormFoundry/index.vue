@@ -74,8 +74,8 @@
 
 <script>
 import draggable from 'vuedraggable';
+import formItem from '@/components/FormItem';
 import { uuid, calcCondition } from './util';
-import formItem from './form-item';
 import preview from './preview';
 import CONFIG from './config.json';
 

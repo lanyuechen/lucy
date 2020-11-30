@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import formItem from './form-item';
+import formItem from '@/components/FormItem';
 import { calcCondition } from './util';
 
 export default {
