@@ -91,7 +91,7 @@ export default {
         if (!['id', 'type', 'key', 'title', 'defaultValue', 'options'].includes(k)) {
           res[k] = v;
         }
-      })
+      });
       return res;
     }
   },
@@ -105,6 +105,5 @@ export default {
   },
   methods: {
   }
-}
+};
 </script>
-

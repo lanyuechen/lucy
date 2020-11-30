@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import FormFoundry from './components/FormFoundry'
+import FormFoundry from './components/FormFoundry';
 
 export default {
   name: 'App',
   components: {
     FormFoundry
   }
-}
+};
 </script>
 
 <style>

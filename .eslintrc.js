@@ -1,19 +1,34 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
   env: {
     browser: true,
-    node: true,
-    es6: true,
   },
-  extends: [],
-
+  extends: [
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential', 
+    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'standard'
+  ],
+  // required to lint *.vue files
+  plugins: [
+    'vue'
+  ],
   // add your custom rules here
-  //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
-    
+    // 允许使用 async-await
+    'generator-star-spacing': 'off',
+    // 开发环境允许使用debugger
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 要求在语句末尾使用分号
+    'semi': ['warn', 'always'],
+    // 函数名与参数括号间不允许使用空格
+    'space-before-function-paren': ['warn', 'never'],
+    'comma-dangle': ['error', 'only-multiline'],
   }
 }

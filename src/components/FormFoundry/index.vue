@@ -96,7 +96,7 @@ export default {
       defines: CONFIG.defines,
       dataSource: [],
       dataForm: {}
-    }
+    };
   },
   computed: {
     currentIdx() {
@@ -118,7 +118,7 @@ export default {
         id,
         key: `${item.type}_${id.substr(0, 4)}`,
         ...item
-      }
+      };
     },
     remove(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
@@ -137,7 +137,7 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

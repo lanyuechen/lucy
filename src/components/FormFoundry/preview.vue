@@ -28,7 +28,7 @@ export default {
   data() {
     return {
 
-    }
+    };
   },
   methods: {
     handleInput(key, val) {
@@ -38,7 +38,7 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
