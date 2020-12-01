@@ -66,8 +66,8 @@
           :data-source="currentProps"
         />
       </div>
-      <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
       <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
+      <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
     </div>
   </div>
 </template>
@@ -76,14 +76,12 @@
 import draggable from 'vuedraggable';
 import formItem from '@/components/FormItem';
 import { uuid, calcCondition } from './util';
-import preview from './preview';
 import CONFIG from './config.json';
 
 export default {
   components: {
     draggable,
-    formItem,
-    preview
+    formItem
   },
   filters: {
     calcCondition

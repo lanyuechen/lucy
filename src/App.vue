@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <FormFoundry />
+    <!-- <Test /> -->
   </div>
 </template>
 
 <script>
 import FormFoundry from './components/FormFoundry';
+import Test from './components/Test';
 
 export default {
   name: 'App',
   components: {
-    FormFoundry
+    FormFoundry,
+    Test
   }
 };
 </script>

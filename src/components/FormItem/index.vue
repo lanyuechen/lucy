@@ -6,8 +6,9 @@
     <component
       :is="`ff-${config.type}`"
       :options="options"
-      :placeholder="config.placeholder"
       :disabled="disabled"
+      :placeholder="config.placeholder"
+      :component="config.component"
       :value="value"
       @input="(val) => $emit('input', val)"
     />
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-
 export default {
   components: {
     // 基础组件

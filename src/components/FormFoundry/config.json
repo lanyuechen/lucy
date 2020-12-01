@@ -39,7 +39,18 @@
     {
       "type": "dynamic",
       "title": "动态组件",
-      "component": ""
+      "component": [
+        {
+          "type": "input",
+          "key": "key",
+          "placeholder": "key"
+        },
+        {
+          "type": "input",
+          "key": "value",
+          "placeholder": "value"
+        }
+      ]
     }
   ],
   "props": {
