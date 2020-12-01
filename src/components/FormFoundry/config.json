@@ -16,8 +16,8 @@
       "type": "select",
       "title": "下拉框",
       "options": [
-        "option1",
-        "option2"
+        {"key": "option1", "value": "选项1"},
+        {"key": "option2", "value": "选项2"}
       ]
     },
     {
@@ -25,7 +25,7 @@
       "title": "复选框",
       "options": [
         {"key": "option1", "value": "选项1"},
-        "option2"
+        {"key": "option2", "value": "选项2"}
       ]
     },
     {
@@ -33,7 +33,7 @@
       "title": "单选框",
       "options": [
         {"key": "option1", "value": "选项1"},
-        "option2"
+        {"key": "option2", "value": "选项2"}
       ]
     },
     {
@@ -64,7 +64,7 @@
       "basic", "placeholder", "defaultValue"
     ],
     "select": [
-      "basic", "placeholder", "defaultValue"
+      "basic", "placeholder", "defaultValue", "options"
     ],
     "checkbox-group": [
       "basic", "defaultValueArray"
@@ -113,7 +113,20 @@
     {
       "type": "dynamic",
       "title": "选项",
-      "key": "options"
+      "key": "options",
+      "component": [
+        {
+          "type": "input",
+          "key": "key",
+          "placeholder": "key"
+        },
+        {
+          "type": "input",
+          "key": "value",
+          "placeholder": "value"
+        }
+      ],
+      "tag": "options"
     }
   ]
 }

@@ -22,9 +22,19 @@ export default {
   filters: {
     calcCondition
   },
-  props: [
-    'dataSource', 'value'
-  ],
+  props: {
+    dataSource: {
+      type: Array,
+      default: () => []
+    },
+    value: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  // props: [
+  //   'dataSource', 'value'
+  // ],
   data() {
     return {
 

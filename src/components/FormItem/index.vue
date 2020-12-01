@@ -5,7 +5,7 @@
   >
     <component
       :is="`ff-${config.type}`"
-      :options="options"
+      :options="config.options"
       :disabled="disabled"
       :placeholder="config.placeholder"
       :component="config.component"
@@ -34,19 +34,6 @@ export default {
     // eslint-disable-next-line vue/require-prop-types
     'config', 'value', 'disabled'
   ],
-  computed: {
-    options: function() {
-      if (!this.config.options) {
-        return this.config.options;
-      }
-      return this.config.options.map(option => {
-        if (typeof option === 'string') {
-          return {key: option, value: option};
-        }
-        return option;
-      });
-    }
-  },
   data() {
     return {
 

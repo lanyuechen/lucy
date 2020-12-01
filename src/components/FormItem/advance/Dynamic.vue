@@ -9,7 +9,7 @@
       <el-col style="flex: auto">
         <preview
           :data-source="component"
-          :value="value[idx] || {}"
+          :value="value[idx]"
           @input="(val) => handleChange(idx, val)"
         />
         <!-- <el-input :value="value[idx]" @input="(val) => handleChange(idx, val)" /> -->
