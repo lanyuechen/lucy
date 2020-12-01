@@ -51,15 +51,19 @@
       </div>
     </div>
     <div class="right">
-      <h2>属性配置</h2>
-      <div class="props-content">
-        <preview
-          v-model="dataSource[currentIdx]"
-          :data-source="currentProps"
-        />
-      </div>
-      <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
-      <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
+      <!-- <h2>属性配置</h2> -->
+      <el-tabs v-model="currentConfig" type="border-card">
+        <el-tab-pane label="表单配置" name="form">
+          <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
+          <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
+        </el-tab-pane>
+        <el-tab-pane label="属性配置" name="attr">
+          <preview
+            v-model="dataSource[currentIdx]"
+            :data-source="currentProps"
+          />
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -81,6 +85,7 @@ export default {
   data() {
     return {
       current: '',
+      currentConfig: 'attr',
       menus: CONFIG.components,
       props: CONFIG.props,
       defines: CONFIG.defines,
@@ -170,10 +175,14 @@ export default {
   }
   .right {
     width: 300px;
-    border-left: 1px solid rgb(224, 224, 224);
-    padding: 8px 0;
-    display: flex;
-    flex-direction: column;
+    .el-tabs {
+      box-shadow: none;
+      height: 100%;
+    }
+    .el-tabs__item {
+      height: 45px;
+      line-height: 45px;
+    }
     &>h2 {
       padding: 8px 12px;
       font-size: 13px;
@@ -210,9 +219,6 @@ export default {
       border: 1px solid #f4f6fc;
     }
   }
-}
-.props-content {
-  padding: 0 12px;
 }
 .drag-area {
   width: 100%;

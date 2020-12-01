@@ -1,16 +1,6 @@
 {
   "components": [
     {
-      "type": "grid",
-      "title": "栅格布局",
-      "components": [
-        {
-          "type": "input",
-          "title": "单行文本"
-        }
-      ]
-    },
-    {
       "type": "input",
       "title": "单行文本"
     },
