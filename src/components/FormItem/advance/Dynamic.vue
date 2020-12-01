@@ -8,11 +8,10 @@
     >
       <el-col style="flex: auto">
         <preview
-          :data-source="component"
+          :data-source="components"
           :value="value[idx]"
           @input="(val) => handleChange(idx, val)"
         />
-        <!-- <el-input :value="value[idx]" @input="(val) => handleChange(idx, val)" /> -->
       </el-col>
       <el-col style="width: 36px;">
         <a @click="remove(idx)"><i class="el-icon-delete" /></a>
@@ -26,7 +25,7 @@
 <script>
 export default {
   props: [
-    'value', 'component'
+    'value', 'components'
   ],
   data() {
     return {

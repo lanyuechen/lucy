@@ -12,13 +12,9 @@
 </template>
 
 <script>
-import formItem from '@/components/FormItem';
 import { calcCondition } from './util';
 
 export default {
-  components: {
-    formItem
-  },
   filters: {
     calcCondition
   },

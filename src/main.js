@@ -6,8 +6,10 @@ import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Preview from '@/components/FormFoundry/preview';
+import FormItem from '@/components/FormItem';
 
 Vue.component('preview', Preview);
+Vue.component('form-item', FormItem);
 
 Vue.config.productionTip = false;
 

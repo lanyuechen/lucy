@@ -8,7 +8,7 @@
       :options="config.options"
       :disabled="disabled"
       :placeholder="config.placeholder"
-      :component="config.component"
+      :components="config.components"
       :value="value"
       @input="(val) => $emit('input', val)"
     />
@@ -29,6 +29,9 @@ export default {
     // 高级组件
     'ff-custom': require('@/components/FormItem/advance/Custom').default,
     'ff-dynamic': require('@/components/FormItem/advance/Dynamic').default,
+
+    // 布局组件
+    'ff-grid': require('@/components/FormItem/layout/Grid').default,
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types
