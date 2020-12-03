@@ -24,7 +24,10 @@
         head
       </div>
       <div class="body">
-        <el-form label-width="auto">
+        <el-form
+          v-bind="formConfig"
+          :label-width="formConfig.labelWidth || 'auto'"
+        >
           <draggable
             :list="dataSource"
             :animation="200"
@@ -51,14 +54,20 @@
       </div>
     </div>
     <div class="right">
-      <!-- <h2>属性配置</h2> -->
       <el-tabs v-model="currentConfig" type="border-card">
         <el-tab-pane label="表单配置" name="form">
+          <preview
+            v-model="formConfig"
+            :data-source="formDefines"
+          />
+          <code><pre>{{ JSON.stringify(formConfig, undefined, 2) }}</pre></code>
           <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
           <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
         </el-tab-pane>
         <el-tab-pane label="属性配置" name="attr">
+          <!-- 使用v-if是为了防止preview渲染的时候因为el-tab-pane导致的显示错误 -->
           <preview
+            v-if="currentConfig === 'attr'"
             v-model="dataSource[currentIdx]"
             :data-source="currentProps"
           />
@@ -85,11 +94,13 @@ export default {
   data() {
     return {
       current: '',
-      currentConfig: 'attr',
+      currentConfig: 'form',
       menus: CONFIG.components,
       props: CONFIG.props,
       defines: CONFIG.defines,
+      formDefines: CONFIG.form,
       dataSource: [],
+      formConfig: {},
       dataForm: {}
     };
   },
