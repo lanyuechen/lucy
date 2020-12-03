@@ -64,7 +64,7 @@
           <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
           <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
         </el-tab-pane>
-        <el-tab-pane label="属性配置" name="attr">
+        <el-tab-pane v-if="current" label="属性配置" name="attr">
           <!-- 使用v-if是为了防止preview渲染的时候因为el-tab-pane导致的显示错误 -->
           <preview
             v-if="currentConfig === 'attr'"

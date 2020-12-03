@@ -37,11 +37,20 @@ export default {
     };
   },
   methods: {
+    // handleInput(key, val) {
+    //   this.$emit('input', {
+    //     ...this.$props.value,
+    //     [key]: val
+    //   });
+    // },
     handleInput(key, val) {
-      this.$emit('input', {
-        ...this.$props.value,
-        [key]: val
-      });
+      // 直接emit会导致连续多次emit后面的数据覆盖前面的数据，因此在这里收集所有变化再提交到父组件
+      clearTimeout(this.emitHandler);
+      this.formData = this.formData || {};
+      this.formData[key] = val;
+      this.emitHandler = setTimeout(() => {
+        this.$emit('input', this.formData);
+      }, 0);
     }
   }
 };
