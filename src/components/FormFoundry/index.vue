@@ -158,7 +158,7 @@ export default {
     display: flex;
     flex-direction: column;
     &>h2 {
-      padding: 8px 12px;
+      padding: 4px 12px 8px 12px;
       font-size: 13px;
       font-weight: normal;
       margin-bottom: 0;
@@ -170,7 +170,7 @@ export default {
     display: flex;
     flex-direction: column;
     .header {
-      height: 45px;
+      height: 40px;
       border-bottom: 1px solid rgb(224, 224, 224);
       background: #fff;
     }
@@ -189,10 +189,6 @@ export default {
     .el-tabs {
       box-shadow: none;
       height: 100%;
-    }
-    .el-tabs__item {
-      height: 45px;
-      line-height: 45px;
     }
     &>h2 {
       padding: 8px 12px;
