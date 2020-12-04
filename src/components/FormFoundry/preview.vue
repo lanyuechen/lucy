@@ -45,12 +45,11 @@ export default {
     // },
     handleInput(key, val) {
       // 直接emit会导致连续多次emit后面的数据覆盖前面的数据，因此在这里收集所有变化再提交到父组件
-      clearTimeout(this.emitHandler);
-      this.formData = this.formData || {};
+      this.formData = Object.assign({}, this.formData); // 防止使用v-model时污染formData变量
       this.formData[key] = val;
-      this.emitHandler = setTimeout(() => {
+      this.$nextTick(() => {
         this.$emit('input', this.formData);
-      }, 0);
+      });
     }
   }
 };

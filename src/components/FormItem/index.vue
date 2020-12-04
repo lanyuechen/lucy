@@ -27,7 +27,6 @@ export default {
     'ff-textarea': require('@/components/FormItem/basic/Textarea').default,
 
     // 高级组件
-    'ff-custom': require('@/components/FormItem/advance/Custom').default,
     'ff-dynamic': require('@/components/FormItem/advance/Dynamic').default,
 
     // 布局组件

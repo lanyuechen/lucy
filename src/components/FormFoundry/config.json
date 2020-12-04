@@ -90,6 +90,9 @@
     ],
     "radio-group": [
       "basic", "defaultValue"
+    ],
+    "dynamic": [
+      "basic"
     ]
   },
   "defines": [
