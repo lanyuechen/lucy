@@ -16,7 +16,7 @@
             :key="m.type"
             class="menu-item"
           >
-            <a>{{ m.title }}</a>
+            <a @click="add(m)">{{ m.title }}</a>
           </li>
         </draggable>
       </div>
@@ -27,6 +27,7 @@
         <el-button type="text">生成JSON</el-button>
       </div>
       <div class="body">
+        <div class="empty" v-if="!dataSource.length">从左侧拖拽或点击来添加字段</div>
         <el-form
           v-bind="formConfig"
           :label-width="formConfig.labelWidth || 'auto'"
@@ -138,6 +139,9 @@ export default {
         ...item
       };
     },
+    add(item) {
+      this.dataSource.push(this.prepareClone(item));
+    },
     remove(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
       if (this.current === id) {
@@ -194,6 +198,7 @@ export default {
       background: #fff;
       margin: 15px;
       border: 1px solid rgb(214, 214, 214);
+      position: relative;
       form {
         height: 100%;
       }
@@ -220,10 +225,10 @@ export default {
   padding: 0 10px 10px;
   margin: 0;
   flex: auto;
-  list-style: none;
   .menu-item {
     font-size: 12px;
     display: block;
+    text-align: center;
     width: 48%;
     line-height: 26px;
     position: relative;
@@ -252,5 +257,19 @@ export default {
 .drag-area {
   width: 100%;
   height: 100%;
+}
+.empty {
+  color: #ccc;
+  font-size: 22px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.sortable-chosen {
+  margin: 2px;
+  list-style: none;
+  border: 1px dashed hsla(0,0%,66.7%,.5);
+  background-color: rgba(236,245,255,.3);
 }
 </style>
