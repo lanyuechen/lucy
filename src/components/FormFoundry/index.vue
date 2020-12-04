@@ -23,7 +23,8 @@
     </div>
     <div class="content">
       <div class="header">
-        head
+        <el-button type="text">导入</el-button>
+        <el-button type="text">生成JSON</el-button>
       </div>
       <div class="body">
         <el-form
@@ -185,6 +186,8 @@ export default {
       height: 40px;
       border-bottom: 1px solid rgb(224, 224, 224);
       background: #fff;
+      text-align: right;
+      padding: 6px 15px;
     }
     .body {
       flex: auto;
@@ -238,6 +241,11 @@ export default {
       cursor: move;
       background: #f4f6fc;
       border: 1px solid #f4f6fc;
+      transition: color .4s, border-color .4s;
+      &:hover {
+        color: #409eff;
+        border-color: #409eff;
+      }
     }
   }
 }
