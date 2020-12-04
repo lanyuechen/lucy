@@ -2,15 +2,18 @@
   "components": [
     {
       "type": "input",
-      "title": "单行文本"
+      "title": "单行文本",
+      "tag": "基础组件"
     },
     {
       "type": "number",
-      "title": "数字"
+      "title": "数字",
+      "tag": "基础组件"
     },
     {
       "type": "textarea",
-      "title": "多行文本"
+      "title": "多行文本",
+      "tag": "基础组件"
     },
     {
       "type": "select",
@@ -18,7 +21,8 @@
       "options": [
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
-      ]
+      ],
+      "tag": "基础组件"
     },
     {
       "type": "checkbox-group",
@@ -26,7 +30,8 @@
       "options": [
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
-      ]
+      ],
+      "tag": "基础组件"
     },
     {
       "type": "radio-group",
@@ -34,7 +39,38 @@
       "options": [
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
-      ]
+      ],
+      "tag": "基础组件"
+    },
+    {
+      "type": "date",
+      "title": "日期",
+      "tag": "日期时间组件"
+    },
+    {
+      "type": "date-range",
+      "title": "日期范围",
+      "tag": "日期时间组件"
+    },
+    {
+      "type": "time",
+      "title": "时间",
+      "tag": "日期时间组件"
+    },
+    {
+      "type": "time-range",
+      "title": "时间范围",
+      "tag": "日期时间组件"
+    },
+    {
+      "type": "date-time",
+      "title": "日期时间",
+      "tag": "日期时间组件"
+    },
+    {
+      "type": "date-time-range",
+      "title": "日期时间范围",
+      "tag": "日期时间组件"
     },
     {
       "type": "dynamic",
@@ -50,7 +86,8 @@
           "key": "value",
           "placeholder": "value"
         }
-      ]
+      ],
+      "tag": "高级组件"
     }
   ],
   "form": [

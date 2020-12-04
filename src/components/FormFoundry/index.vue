@@ -1,23 +1,25 @@
 <template>
   <div class="container">
     <div class="left">
-      <h2>基础字段</h2>
-      <draggable
-        tag="ul"
-        class="menu"
-        :list="menus"
-        :group="{ name: 'component', pull: 'clone', put: false }"
-        :sort="false"
-        :clone="prepareClone"
-      >
-        <li
-          v-for="menu in menus"
-          :key="menu.type"
-          class="menu-item"
+      <div v-for="menu in menus" :key="menu[0]">
+        <h2>{{ menu[0] }}</h2>
+        <draggable
+          tag="ul"
+          class="menu"
+          :list="menu[1]"
+          :group="{ name: 'component', pull: 'clone', put: false }"
+          :sort="false"
+          :clone="prepareClone"
         >
-          <a>{{ menu.title }}</a>
-        </li>
-      </draggable>
+          <li
+            v-for="m in menu[1]"
+            :key="m.type"
+            class="menu-item"
+          >
+            <a>{{ m.title }}</a>
+          </li>
+        </draggable>
+      </div>
     </div>
     <div class="content">
       <div class="header">
@@ -95,7 +97,7 @@ export default {
     return {
       current: '',
       currentConfig: 'form',
-      menus: CONFIG.components,
+      menus: this.prepareMenus(CONFIG.components),
       props: CONFIG.props,
       defines: CONFIG.defines,
       formDefines: CONFIG.form,
@@ -118,6 +120,15 @@ export default {
     }
   },
   methods: {
+    prepareMenus(menus) {
+      return Object.entries(
+        menus.reduce((p, n) => {
+          p[n.tag] = p[n.tag] || [];
+          p[n.tag].push(n);
+          return p;
+        }, {})
+      );
+    },
     prepareClone(item) {
       const id = uuid();
       return {
@@ -152,12 +163,13 @@ export default {
   height: 100%;
   align-items: stretch;
   .left {
+    flex: none;
     width: 256px;
     border-right: 1px solid rgb(224, 224, 224);
     padding: 8px 0;
     display: flex;
     flex-direction: column;
-    &>h2 {
+    h2 {
       padding: 4px 12px 8px 12px;
       font-size: 13px;
       font-weight: normal;
@@ -185,6 +197,7 @@ export default {
     }
   }
   .right {
+    flex: none;
     width: 300px;
     .el-tabs {
       box-shadow: none;
@@ -204,6 +217,7 @@ export default {
   padding: 0 10px 10px;
   margin: 0;
   flex: auto;
+  list-style: none;
   .menu-item {
     font-size: 12px;
     display: block;

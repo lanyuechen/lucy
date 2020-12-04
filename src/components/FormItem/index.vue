@@ -26,6 +26,14 @@ export default {
     'ff-number': require('@/components/FormItem/basic/Number').default,
     'ff-textarea': require('@/components/FormItem/basic/Textarea').default,
 
+    // 日期时间组件
+    'ff-date': require('@/components/FormItem/date/DatePicker').default,
+    'ff-date-range': require('@/components/FormItem/date/DateRangePicker').default,
+    'ff-time': require('@/components/FormItem/date/TimePicker').default,
+    'ff-time-range': require('@/components/FormItem/date/TimeRangePicker').default,
+    'ff-date-time': require('@/components/FormItem/date/DateTimePicker').default,
+    'ff-date-time-range': require('@/components/FormItem/date/DateTimeRangePicker').default,
+
     // 高级组件
     'ff-dynamic': require('@/components/FormItem/advance/Dynamic').default,
 
