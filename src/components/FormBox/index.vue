@@ -68,6 +68,7 @@ export default {
   // }
   &.active {
     outline: 2px solid #409eff;
+    border: 1px solid #409eff;
   }
 }
 </style>
