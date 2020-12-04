@@ -25,6 +25,7 @@ export default {
     'ff-input': require('@/components/FormItem/basic/Input').default,
     'ff-number': require('@/components/FormItem/basic/Number').default,
     'ff-textarea': require('@/components/FormItem/basic/Textarea').default,
+    'ff-switch': require('@/components/FormItem/basic/Switch').default,
 
     // 日期时间组件
     'ff-date': require('@/components/FormItem/date/DatePicker').default,

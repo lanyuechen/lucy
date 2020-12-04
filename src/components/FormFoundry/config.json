@@ -43,6 +43,11 @@
       "tag": "基础组件"
     },
     {
+      "type": "switch",
+      "title": "开关",
+      "tag": "基础组件"
+    },
+    {
       "type": "date",
       "title": "日期",
       "tag": "日期时间组件"
