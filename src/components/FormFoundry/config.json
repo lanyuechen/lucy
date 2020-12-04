@@ -133,6 +133,27 @@
     "radio-group": [
       "basic", "defaultValue"
     ],
+    "switch": [
+      "basic"
+    ],
+    "date": [
+      "basic"
+    ],
+    "date-range": [
+      "basic"
+    ],
+    "time": [
+      "basic"
+    ],
+    "time-range": [
+      "basic"
+    ],
+    "date-time": [
+      "basic"
+    ],
+    "date-time-range": [
+      "basic"
+    ],
     "dynamic": [
       "basic"
     ]

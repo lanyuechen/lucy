@@ -4,7 +4,7 @@
     :prop="config.key"
   >
     <component
-      :is="`ff-${config.type}`"
+      :is="`ff-${config.type || 'input'}`"
       :options="config.options"
       :disabled="disabled"
       :placeholder="config.placeholder"
