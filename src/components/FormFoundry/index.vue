@@ -6,13 +6,13 @@
         :key="menu[0]"
         :title="menu[0]"
         :data-source="menu[1]"
-        @add="add"
+        @click="add"
       />
 
       <draggable-menus
         title="自定义组件"
-        :data-source="[]"
-        @add="add"
+        :data-source="customComponents"
+        @click="add"
       />
     </div>
     <div class="content">
@@ -101,6 +101,7 @@ export default {
       defines: CONFIG.defines,
       formDefines: CONFIG.form,
       dataSource: [],
+      customComponents: [],
       formConfig: {},
       dataForm: {}
     };
@@ -119,6 +120,9 @@ export default {
     }
   },
   methods: {
+    init() {
+      this.customComponents = [];
+    },
     prepareMenus(menus) {
       return Object.entries(
         menus.reduce((p, n) => {

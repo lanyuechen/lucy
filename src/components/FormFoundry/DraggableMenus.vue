@@ -43,7 +43,7 @@ export default {
       };
     },
     add(item) {
-      this.$emit('add', this.prepareClone(item));
+      this.$emit('click', this.prepareClone(item));
     }
   }
 };
