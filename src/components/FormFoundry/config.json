@@ -93,6 +93,23 @@
         }
       ],
       "tag": "高级组件"
+    },
+    {
+      "type": "view",
+      "title": "视图组件",
+      "components": [
+        {
+          "type": "input",
+          "key": "key",
+          "placeholder": "key"
+        },
+        {
+          "type": "input",
+          "key": "value",
+          "placeholder": "value"
+        }
+      ],
+      "tag": "高级组件"
     }
   ],
   "form": [

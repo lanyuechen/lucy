@@ -1,30 +1,25 @@
 <template>
   <div class="container">
     <div class="left">
-      <div v-for="menu in menus" :key="menu[0]">
-        <h2>{{ menu[0] }}</h2>
-        <draggable
-          tag="ul"
-          class="menu"
-          :list="menu[1]"
-          :group="{ name: 'component', pull: 'clone', put: false }"
-          :sort="false"
-          :clone="prepareClone"
-        >
-          <li
-            v-for="m in menu[1]"
-            :key="m.type"
-            class="menu-item"
-          >
-            <a @click="add(m)">{{ m.title }}</a>
-          </li>
-        </draggable>
-      </div>
+      <draggable-menus
+        v-for="menu in menus"
+        :key="menu[0]"
+        :title="menu[0]"
+        :data-source="menu[1]"
+        @add="add"
+      />
+
+      <draggable-menus
+        title="自定义组件"
+        :data-source="[]"
+        @add="add"
+      />
     </div>
     <div class="content">
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text">生成JSON</el-button>
+        <el-button type="text">保存为组件</el-button>
       </div>
       <div class="body">
         <div class="empty" v-if="!dataSource.length">从左侧拖拽或点击来添加字段</div>
@@ -60,7 +55,7 @@
     <div class="right">
       <el-tabs v-model="currentConfig" type="border-card">
         <el-tab-pane label="表单配置" name="form">
-          <preview
+          <view
             v-model="formConfig"
             :data-source="formDefines"
           />
@@ -69,8 +64,8 @@
           <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
         </el-tab-pane>
         <el-tab-pane v-if="current" label="属性配置" name="attr">
-          <!-- 使用v-if是为了防止preview渲染的时候因为el-tab-pane导致的显示错误 -->
-          <preview
+          <!-- 使用v-if是为了防止view渲染的时候因为el-tab-pane导致的显示错误 -->
+          <view
             v-if="currentConfig === 'attr'"
             v-model="dataSource[currentIdx]"
             :data-source="currentProps"
@@ -83,14 +78,16 @@
 
 <script>
 import draggable from 'vuedraggable';
+import FormBox from '@/components/FormBox';
+import DraggableMenus from './DraggableMenus';
 import { uuid, calcCondition } from './util';
 import CONFIG from './config.json';
-import FormBox from '@/components/FormBox';
 
 export default {
   components: {
     draggable,
-    FormBox
+    FormBox,
+    DraggableMenus
   },
   filters: {
     calcCondition
@@ -131,16 +128,8 @@ export default {
         }, {})
       );
     },
-    prepareClone(item) {
-      const id = uuid();
-      return {
-        id,
-        key: `${item.type}_${id.substr(0, 4)}`,
-        ...item
-      };
-    },
     add(item) {
-      this.dataSource.push(this.prepareClone(item));
+      this.dataSource.push(item);
     },
     remove(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
@@ -216,41 +205,6 @@ export default {
       font-size: 13px;
       font-weight: normal;
       margin-bottom: 0;
-    }
-  }
-}
-.menu {
-  position: relative;
-  overflow: hidden;
-  padding: 0 10px 10px;
-  margin: 0;
-  flex: auto;
-  .menu-item {
-    font-size: 12px;
-    display: block;
-    text-align: center;
-    width: 48%;
-    line-height: 26px;
-    position: relative;
-    float: left;
-    left: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 1%;
-    color: #333;
-    border: 1px solid #f4f6fc;
-    a {
-      padding: 0 5px;
-      display: block;
-      cursor: move;
-      background: #f4f6fc;
-      border: 1px solid #f4f6fc;
-      transition: color .4s, border-color .4s;
-      &:hover {
-        color: #409eff;
-        border-color: #409eff;
-      }
     }
   }
 }

@@ -37,9 +37,7 @@ export default {
 
     // 高级组件
     'ff-dynamic': require('@/components/FormItem/advance/Dynamic').default,
-
-    // 布局组件
-    'ff-grid': require('@/components/FormItem/layout/Grid').default,
+    'ff-view': require('@/components/FormItem/advance/View').default,
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types

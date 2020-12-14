@@ -1,6 +1,6 @@
 <template>
   <div>
-    <preview
+    <view
       :data-source="component"
       :value="value"
       @input="(val) => handleChange(val)"
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import preview from '@/components/FormFoundry/preview';
+import view from '@/components/FormFoundry/view';
 
 export default {
   components: {
-    preview
+    view
   },
   data() {
     return {
