@@ -18,16 +18,17 @@
     <div class="content">
       <div class="header">
         <el-button type="text">导入</el-button>
+        <el-button type="text" @click="previewVisible = true">预览</el-button>
         <el-button type="text">生成JSON</el-button>
         <el-button type="text">保存为组件</el-button>
       </div>
       <div class="body">
         <editor
-          :current="current"
+          :current.sync="current"
           :data-source="dataSource"
           :data-form="dataForm"
           :form-config="formConfig"
-          @click="(c) => current = c ? c.id : ''"
+          @click="(c) => current = c.id"
         />
       </div>
     </div>
@@ -38,7 +39,6 @@
             v-model="formConfig"
             :data-source="formDefines"
           />
-          <code><pre>{{ JSON.stringify(formConfig, undefined, 2) }}</pre></code>
           <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
           <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
         </el-tab-pane>
@@ -52,6 +52,13 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+
+    <modal-preview
+      :visible.sync="previewVisible"
+      :data-source="dataSource"
+      :form-config="formConfig"
+    />
+
   </div>
 </template>
 
@@ -60,6 +67,7 @@ import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
 import DraggableMenus from './DraggableMenus';
+import ModalPreview from './ModalPreview';
 
 export default {
   props: ['config'],
@@ -67,7 +75,8 @@ export default {
     draggable,
     FormBox,
     Editor,
-    DraggableMenus
+    DraggableMenus,
+    ModalPreview,
   },
   data() {
     return {
@@ -81,7 +90,8 @@ export default {
       dataSource: [],
       customComponents: [],
       formConfig: {},
-      dataForm: {}
+      dataForm: {},
+      previewVisible: false,
     };
   },
   computed: {

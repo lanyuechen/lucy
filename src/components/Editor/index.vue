@@ -52,14 +52,14 @@ export default {
     remove(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
       if (this.current === id) {
-        this.$emit('click');
+        this.$emit('update:current', '');
       }
       this.dataSource.splice(idx, 1);
     },
     copy(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
       const newId = uuid();
-      this.dataSource.splice(idx, 0, {
+      this.dataSource.splice(idx + 1, 0, {
         ...this.dataSource[idx],
         id: newId,
         key: `${this.dataSource[idx].type}_${newId.substr(0, 4)}`
