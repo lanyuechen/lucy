@@ -5,7 +5,7 @@ import App from './App';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-import Viewer from '@/components/FormFoundry/Viewer';
+import Viewer from '@/components/Viewer';
 import FormItem from '@/components/FormItem';
 
 Vue.component('viewer', Viewer);

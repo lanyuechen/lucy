@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { calcCondition } from './util';
+import { calcCondition } from '@/utils/util';
 
 export default {
   filters: {

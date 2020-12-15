@@ -22,10 +22,11 @@
         <el-button type="text">保存为组件</el-button>
       </div>
       <div class="body">
-        <form-editor
+        <editor
           :current="current"
           :data-source="dataSource"
           :data-form="dataForm"
+          :form-config="formConfig"
           @click="(c) => current = c ? c.id : ''"
         />
       </div>
@@ -57,20 +58,16 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import FormEditor from '@/components/FormEditor';
+import Editor from '@/components/Editor';
 import DraggableMenus from './DraggableMenus';
-import { calcCondition } from './util';
 import CONFIG from './config.json';
 
 export default {
   components: {
     draggable,
     FormBox,
-    FormEditor,
+    Editor,
     DraggableMenus
-  },
-  filters: {
-    calcCondition
   },
   data() {
     return {

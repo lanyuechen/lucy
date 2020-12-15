@@ -22,7 +22,7 @@
 
 <script>
 import draggable from 'vuedraggable';
-import { uuid } from './util';
+import { uuid } from '@/utils/util';
 
 export default {
   props: ['title', 'dataSource'],

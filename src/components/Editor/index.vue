@@ -33,7 +33,7 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import { uuid, calcCondition } from '../FormFoundry/util';
+import { uuid, calcCondition } from '@/utils/util';
 
 export default {
   props: ['formConfig', 'current', 'dataSource', 'dataForm'],
