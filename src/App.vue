@@ -1,19 +1,27 @@
 <template>
   <div id="app">
-    <FormFoundry />
+    <FormFoundry
+      :config="config"
+    />
     <!-- <Test /> -->
   </div>
 </template>
 
 <script>
-import FormFoundry from './components/FormFoundry';
-import Test from './components/Test';
+import FormFoundry from '@/components/FormFoundry';
+import Test from '@/components/Test';
+import CONFIG from './config.json';
 
 export default {
   name: 'App',
   components: {
     FormFoundry,
     Test
+  },
+  data() {
+    return {
+      config: CONFIG,
+    };
   }
 };
 </script>

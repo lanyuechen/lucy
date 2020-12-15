@@ -6,7 +6,7 @@ import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Viewer from '@/components/Viewer';
-import FormItem from '@/components/FormItem';
+import FormItem from '@/wardrobe';
 
 Vue.component('viewer', Viewer);
 Vue.component('form-item', FormItem);

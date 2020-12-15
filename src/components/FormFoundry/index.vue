@@ -60,9 +60,9 @@ import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
 import DraggableMenus from './DraggableMenus';
-import CONFIG from './config.json';
 
 export default {
+  props: ['config'],
   components: {
     draggable,
     FormBox,
@@ -71,12 +71,13 @@ export default {
   },
   data() {
     return {
+      menus: this.prepareMenus(this.config.components),
+      props: this.config.props,
+      defines: this.config.defines,
+      formDefines: this.config.form,
+
       current: '',
       currentConfig: 'form',
-      menus: this.prepareMenus(CONFIG.components),
-      props: CONFIG.props,
-      defines: CONFIG.defines,
-      formDefines: CONFIG.form,
       dataSource: [],
       customComponents: [],
       formConfig: {},
