@@ -5,10 +5,10 @@ import App from './App';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-import View from '@/components/FormFoundry/View';
+import Viewer from '@/components/FormFoundry/Viewer';
 import FormItem from '@/components/FormItem';
 
-Vue.component('view', View);
+Vue.component('viewer', Viewer);
 Vue.component('form-item', FormItem);
 
 Vue.config.productionTip = false;

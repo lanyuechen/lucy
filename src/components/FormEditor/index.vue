@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="container">
     <div class="empty" v-if="!dataSource.length">从左侧拖拽或点击来添加字段</div>
     <el-form
       v-bind="formConfig"
@@ -15,7 +15,7 @@
           v-for="c in dataSource"
           :key="c.id"
           :active="current === c.id"
-          @click="current = c.id"
+          @click="$emit('click', c)"
           @copy="copy(c.id)"
           @remove="remove(c.id)"
         >
@@ -33,11 +33,10 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import { uuid, calcCondition } from './util';
-import CONFIG from './config.json';
+import { uuid, calcCondition } from '../FormFoundry/util';
 
 export default {
-  props: ['formConfig'],
+  props: ['formConfig', 'current', 'dataSource', 'dataForm'],
   components: {
     draggable,
     FormBox,
@@ -47,34 +46,13 @@ export default {
   },
   data() {
     return {
-      current: '',
-      currentConfig: 'form',
-      props: CONFIG.props,
-      defines: CONFIG.defines,
-      formDefines: CONFIG.form,
-      dataSource: [],
-      customComponents: [],
-      dataForm: {}
     };
-  },
-  computed: {
-    currentIdx() {
-      return this.dataSource.findIndex(d => d.id === this.current);
-    },
-    currentProps() {
-      const c = this.dataSource[this.currentIdx];
-      if (!c) {
-        return;
-      }
-      const props = this.props[c.type] || [];
-      return this.defines.filter(d => props.includes(d.tag));
-    }
   },
   methods: {
     remove(id) {
       const idx = this.dataSource.findIndex(d => d.id === id);
       if (this.current === id) {
-        this.current = '';
+        this.$emit('click');
       }
       this.dataSource.splice(idx, 1);
     },
@@ -92,11 +70,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.body {
-  background: #fff;
+.container {
+  height: 100%;
   position: relative;
   form {
     height: 100%;
+    width: 100%;
   }
 }
 .drag-area {

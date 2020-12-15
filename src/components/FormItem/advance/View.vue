@@ -1,5 +1,5 @@
 <template>
-  <view
+  <viewer
     :data-source="components"
     :value="value"
     @input="(val) => $emit('input', val)"

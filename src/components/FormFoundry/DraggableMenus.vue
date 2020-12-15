@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
     <draggable
       tag="ul"
       class="menu"
@@ -50,6 +50,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+  padding: 4px 12px 8px 12px;
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
 .menu {
   position: relative;
   overflow: hidden;

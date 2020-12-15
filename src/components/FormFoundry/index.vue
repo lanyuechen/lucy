@@ -22,40 +22,18 @@
         <el-button type="text">保存为组件</el-button>
       </div>
       <div class="body">
-        <div class="empty" v-if="!dataSource.length">从左侧拖拽或点击来添加字段</div>
-        <el-form
-          v-bind="formConfig"
-          :label-width="formConfig.labelWidth || 'auto'"
-        >
-          <draggable
-            :list="dataSource"
-            :animation="200"
-            ghost-class="ghost"
-            group="component"
-            class="drag-area"
-          >
-            <form-box
-              v-for="c in dataSource"
-              :key="c.id"
-              :active="current === c.id"
-              @click="current = c.id"
-              @copy="copy(c.id)"
-              @remove="remove(c.id)"
-            >
-              <form-item
-                v-model="dataForm[c.key]"
-                :config="c"
-                :disabled="c.disabled | calcCondition(dataForm)"
-              />
-            </form-box>
-          </draggable>
-        </el-form>
+        <form-editor
+          :current="current"
+          :data-source="dataSource"
+          :data-form="dataForm"
+          @click="(c) => current = c ? c.id : ''"
+        />
       </div>
     </div>
     <div class="right">
       <el-tabs v-model="currentConfig" type="border-card">
         <el-tab-pane label="表单配置" name="form">
-          <view
+          <viewer
             v-model="formConfig"
             :data-source="formDefines"
           />
@@ -65,7 +43,7 @@
         </el-tab-pane>
         <el-tab-pane v-if="current" label="属性配置" name="attr">
           <!-- 使用v-if是为了防止view渲染的时候因为el-tab-pane导致的显示错误 -->
-          <view
+          <viewer
             v-if="currentConfig === 'attr'"
             v-model="dataSource[currentIdx]"
             :data-source="currentProps"
@@ -79,14 +57,16 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
+import FormEditor from '@/components/FormEditor';
 import DraggableMenus from './DraggableMenus';
-import { uuid, calcCondition } from './util';
+import { calcCondition } from './util';
 import CONFIG from './config.json';
 
 export default {
   components: {
     draggable,
     FormBox,
+    FormEditor,
     DraggableMenus
   },
   filters: {
@@ -135,22 +115,6 @@ export default {
     add(item) {
       this.dataSource.push(item);
     },
-    remove(id) {
-      const idx = this.dataSource.findIndex(d => d.id === id);
-      if (this.current === id) {
-        this.current = '';
-      }
-      this.dataSource.splice(idx, 1);
-    },
-    copy(id) {
-      const idx = this.dataSource.findIndex(d => d.id === id);
-      const newId = uuid();
-      this.dataSource.splice(idx, 0, {
-        ...this.dataSource[idx],
-        id: newId,
-        key: `${this.dataSource[idx].type}_${newId.substr(0, 4)}`
-      });
-    }
   }
 };
 </script>
@@ -167,12 +131,6 @@ export default {
     padding: 8px 0;
     display: flex;
     flex-direction: column;
-    h2 {
-      padding: 4px 12px 8px 12px;
-      font-size: 13px;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
   }
   .content {
     flex: auto;
@@ -211,23 +169,5 @@ export default {
       margin-bottom: 0;
     }
   }
-}
-.drag-area {
-  width: 100%;
-  height: 100%;
-}
-.empty {
-  color: #ccc;
-  font-size: 22px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-.sortable-chosen {
-  margin: 2px;
-  list-style: none;
-  border: 1px dashed hsla(0,0%,66.7%,.5);
-  background-color: rgba(236,245,255,.3);
 }
 </style>

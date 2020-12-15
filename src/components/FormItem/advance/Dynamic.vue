@@ -7,7 +7,7 @@
       type="flex"
     >
       <el-col style="flex: auto">
-        <view
+        <viewer
           :data-source="components"
           :value="value[idx]"
           @input="(val) => handleChange(idx, val)"
