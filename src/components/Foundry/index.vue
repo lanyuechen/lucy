@@ -2,16 +2,15 @@
   <div class="container">
     <div class="left">
       <draggable-menus
+        title="自定义组件"
+        :data-source="customComponents"
+        @click="add"
+      />
+      <draggable-menus
         v-for="menu in menus"
         :key="menu[0]"
         :title="menu[0]"
         :data-source="menu[1]"
-        @click="add"
-      />
-
-      <draggable-menus
-        title="自定义组件"
-        :data-source="customComponents"
         @click="add"
       />
     </div>
@@ -19,7 +18,7 @@
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
-        <el-button type="text">保存为组件</el-button>
+        <el-button type="text" @click="save">保存</el-button>
       </div>
       <div class="body">
         <el-tabs v-model="mainTab" tab-position="bottom" type="border-card">
