@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 * {
   box-sizing: border-box;
 }
@@ -61,5 +61,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 a {
   cursor: pointer;
+}
+.splitpanes {
+  .splitpanes__splitter {
+    background-color: #ccc;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+  &.splitpanes--vertical {
+    &> .splitpanes__splitter::before {
+      left: -3px;
+      right: -3px;
+      height: 100%;
+    }
+  }
+  &.splitpanes--horizontal {
+    &> .splitpanes__splitter::before {
+      top: -3px;
+      bottom: -3px;
+      width: 100%;
+    }
+  }
 }
 </style>

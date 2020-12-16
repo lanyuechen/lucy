@@ -5,9 +5,14 @@ import App from './App';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import { Splitpanes, Pane } from 'splitpanes';
+import 'splitpanes/dist/splitpanes.css';
+
 import Viewer from '@/components/Viewer';
 import FormItem from '@/wardrobe';
 
+Vue.component('splitpanes', Splitpanes);
+Vue.component('pane', Pane);
 Vue.component('viewer', Viewer);
 Vue.component('form-item', FormItem);
 
