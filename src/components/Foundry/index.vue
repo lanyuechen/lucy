@@ -4,7 +4,7 @@
       <draggable-menus
         title="自定义组件"
         :data-source="customComponents"
-        @click="add"
+        addable
       />
       <draggable-menus
         v-for="menu in menus"
@@ -18,7 +18,7 @@
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
-        <el-button type="text" @click="save">保存</el-button>
+        <el-button type="text">保存</el-button>
       </div>
       <div class="body">
         <el-tabs v-model="mainTab" tab-position="bottom" type="border-card">

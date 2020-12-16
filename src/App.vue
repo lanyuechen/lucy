@@ -8,18 +8,12 @@
 <script>
 import Entry from '@/pages/Entry';
 import Test from '@/pages/Test';
-import CONFIG from './config.json';
 
 export default {
   name: 'App',
   components: {
     Entry,
     Test
-  },
-  data() {
-    return {
-      config: CONFIG,
-    };
   }
 };
 </script>

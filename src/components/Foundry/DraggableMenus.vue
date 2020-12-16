@@ -4,6 +4,7 @@
     <draggable
       tag="ul"
       class="menu"
+      draggable="draggable"
       :list="dataSource"
       :group="{ name: 'component', pull: 'clone', put: false }"
       :sort="false"
@@ -12,9 +13,12 @@
       <li
         v-for="m in dataSource"
         :key="m.type"
-        class="menu-item"
+        class="menu-item draggable"
       >
         <a @click="add(m)">{{ m.title }}</a>
+      </li>
+      <li v-if="addable" slot="footer" class="menu-item">
+        <a class="menu-item-add">添加</a>
       </li>
     </draggable>
   </div>
@@ -25,7 +29,14 @@ import draggable from 'vuedraggable';
 import { uuid } from '@/utils/util';
 
 export default {
-  props: ['title', 'dataSource'],
+  props: {
+    title: String,
+    dataSource: Array,
+    addable: {
+      type: Boolean,
+      default: () => false
+    }
+  },
   components: {
     draggable
   },
@@ -67,16 +78,13 @@ export default {
     display: block;
     text-align: center;
     width: 48%;
-    line-height: 26px;
-    position: relative;
+    line-height: 28px;
     float: left;
-    left: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     margin: 1%;
     color: #333;
-    border: 1px solid #f4f6fc;
     a {
       padding: 0 5px;
       display: block;
@@ -84,6 +92,12 @@ export default {
       background: #f4f6fc;
       border: 1px solid #f4f6fc;
       transition: color .4s, border-color .4s;
+      &.menu-item-add {
+        border:1px dashed #409eff;
+        background: transparent;
+        cursor: pointer;
+        user-select: none;
+      }
       &:hover {
         color: #409eff;
         border-color: #409eff;
