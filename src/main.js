@@ -5,12 +5,18 @@ import App from './App';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import ace from 'ace-builds';
+
 import { Splitpanes, Pane } from 'splitpanes';
 import 'splitpanes/dist/splitpanes.css';
 
 import Viewer from '@/components/Viewer';
 import FormItem from '@/wardrobe';
+import Ace from '@/components/Ace';
 
+Vue.use(ace);
+
+Vue.component('ace', Ace);
 Vue.component('splitpanes', Splitpanes);
 Vue.component('pane', Pane);
 Vue.component('viewer', Viewer);
