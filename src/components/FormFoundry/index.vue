@@ -19,17 +19,31 @@
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
-        <el-button type="text">生成JSON</el-button>
         <el-button type="text">保存为组件</el-button>
       </div>
       <div class="body">
-        <editor
-          :current.sync="current"
-          :data-source="dataSource"
-          :data-form="dataForm"
-          :form-config="formConfig"
-          @click="(c) => current = c.id"
-        />
+        <el-tabs v-model="mainTab" tab-position="bottom" type="border-card">
+          <el-tab-pane label="编辑" name="editor">
+            <editor
+              :current.sync="current"
+              :data-source="dataSource"
+              :data-form="dataForm"
+              :form-config="formConfig"
+              @click="(c) => current = c.id"
+            />
+          </el-tab-pane>
+          <el-tab-pane label="预览" name="viewer">
+            <viewer
+              v-if="mainTab === 'viewer'"
+              v-model="dataForm"
+              :data-source="dataSource"
+              :form-config="formConfig"
+            />
+          </el-tab-pane>
+          <el-tab-pane label="代码" name="coder">
+            <Code :json="dataSource" />
+          </el-tab-pane>
+        </el-tabs>
       </div>
     </div>
     <div class="right">
@@ -40,7 +54,6 @@
             :data-source="formDefines"
           />
           <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
-          <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
         </el-tab-pane>
         <el-tab-pane v-if="current" label="属性配置" name="attr">
           <!-- 使用v-if是为了防止view渲染的时候因为el-tab-pane导致的显示错误 -->
@@ -66,6 +79,7 @@
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
+import Code from '@/components/Code';
 import DraggableMenus from './DraggableMenus';
 import ModalPreview from './ModalPreview';
 
@@ -77,6 +91,7 @@ export default {
     Editor,
     DraggableMenus,
     ModalPreview,
+    Code,
   },
   data() {
     return {
@@ -86,6 +101,7 @@ export default {
       formDefines: this.config.form,
 
       current: '',
+      mainTab: 'editor',
       currentConfig: 'form',
       dataSource: [],
       customComponents: [],
@@ -154,12 +170,20 @@ export default {
     }
     .body {
       flex: auto;
-      background: #fff;
-      margin: 15px;
-      border: 1px solid rgb(214, 214, 214);
       position: relative;
       form {
         height: 100%;
+      }
+      &>>>.el-tabs {
+        height: 100%;
+        box-shadow: none;
+        border: none;
+        .el-tabs__content {
+          height: calc(100% - 49px);
+          .el-tab-pane {
+            height: 100%;
+          }
+        }
       }
     }
   }

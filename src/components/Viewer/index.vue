@@ -1,13 +1,13 @@
 <template>
-  <el-form label-width="auto">
-    <div v-for="c in dataSource" :key="c.id">
-      <form-item
-        :config="c"
-        :value="value[c.key]"
-        :disabled="c.disabled | calcCondition(value)"
-        @input="(val) => handleInput(c.key, val)"
-      />
-    </div>
+  <el-form v-bind="formConfig">
+    <form-item
+      v-for="c in dataSource"
+      :key="c.id"
+      :config="c"
+      :value="value[c.key]"
+      :disabled="c.disabled | calcCondition(value)"
+      @input="(val) => handleInput(c.key, val)"
+    />
   </el-form>
 </template>
 
@@ -19,6 +19,12 @@ export default {
     calcCondition
   },
   props: {
+    formConfig: {
+      type: Object,
+      default: () => ({
+        labelWidth: 'auto'
+      })
+    },
     dataSource: {
       type: Array,
       default: () => []

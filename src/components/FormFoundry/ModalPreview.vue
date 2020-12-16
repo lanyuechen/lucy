@@ -2,20 +2,21 @@
   <el-dialog
     width="75%"
     class="dialog-no-header"
-    :visible.sync="visible"
+    :visible="visible"
+    :before-close="() => $emit('update:visible', false)"
   >
     <el-tabs>
-      <el-tab-pane label="表单">
+      <el-tab-pane label="表单" lazy>
         <viewer
-          v-if="visible"
           v-model="dataForm"
           :data-source="dataSource"
           :form-config="formConfig"
         />
-        {{ JSON.stringify(dataForm, undefined, 2)}}
+        <!-- 大写用于区分原code标签 -->
+        <Code :json="dataForm" />
       </el-tab-pane>
-      <el-tab-pane label="JSON">
-        <code><pre>{{ JSON.stringify(dataSource, undefined, 2) }}</pre></code>
+      <el-tab-pane label="JSON" lazy>
+        <Code :json="dataSource" />
       </el-tab-pane>
     </el-tabs>
     <span slot="footer">
@@ -25,9 +26,12 @@
 </template>
 
 <script>
-
+import Code from '@/components/Code';
 export default {
   props: ['dataSource', 'formConfig', 'visible'],
+  components: {
+    Code
+  },
   data() {
     return {
       dataForm: {}
