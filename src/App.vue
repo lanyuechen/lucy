@@ -82,4 +82,8 @@ a {
     }
   }
 }
+.no-padding {
+  padding: 0;
+  min-width: 100px;
+}
 </style>

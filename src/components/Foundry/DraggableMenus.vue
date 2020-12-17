@@ -17,17 +17,21 @@
       >
         <a @click="add(m)">{{ m.title }}</a>
         <el-popover
-          :open-delay="500"
-          trigger="hover"
+          v-if="addable"
+          :visible-arrow="false"
+          trigger="click"
+          popper-class="no-padding"
         >
-          <div>
-            xxx
-          </div>
+          <ul class="context-menu">
+            <li><a><i class="el-icon-edit" />&nbsp;&nbsp;编辑</a></li>
+            <li><a><i class="el-icon-edit-outline" />&nbsp;&nbsp;重命名</a></li>
+            <li><a><i class="el-icon-delete" />&nbsp;&nbsp;删除</a></li>
+          </ul>
           <i slot="reference" class="more el-icon-more" />
         </el-popover>
       </li>
       <li v-if="addable" slot="footer" class="menu-item">
-        <a class="menu-item-add" @click="$emit('add')">添加</a>
+        <a class="menu-item-add" @click="$emit('add')"><i class="el-icon-plus" /> 添加</a>
       </li>
     </draggable>
   </div>
@@ -103,7 +107,7 @@ export default {
       border: 1px solid #f4f6fc;
       transition: color .4s, border-color .4s;
       &.menu-item-add {
-        border:1px dashed #409eff;
+        border:1px dashed #ccc;
         background: transparent;
         cursor: pointer;
         user-select: none;
@@ -125,6 +129,25 @@ export default {
     }
     &:hover .more {
       opacity: 1;
+    }
+  }
+}
+.context-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    border-bottom: 1px solid #f1f1f1;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      display: block;
+      transition: background-color .5s;
+      padding: 5px 10px;
+      &:hover {
+        background: #f1f1f1;
+      }
     }
   }
 }
