@@ -4,7 +4,7 @@
     <draggable
       tag="ul"
       class="menu"
-      draggable="draggable"
+      draggable=".draggable"
       :list="dataSource"
       :group="{ name: 'component', pull: 'clone', put: false }"
       :sort="false"
@@ -18,7 +18,7 @@
         <a @click="add(m)">{{ m.title }}</a>
       </li>
       <li v-if="addable" slot="footer" class="menu-item">
-        <a class="menu-item-add">添加</a>
+        <a class="menu-item-add" @click="$emit('add')">添加</a>
       </li>
     </draggable>
   </div>

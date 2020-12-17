@@ -5,6 +5,8 @@
         title="自定义组件"
         :data-source="customComponents"
         addable
+        @click="add"
+        @add="createPanel"
       />
       <draggable-menus
         v-for="menu in menus"
@@ -138,6 +140,16 @@ export default {
     add(item) {
       this.dataSource.push(item);
     },
+    createPanel() {
+      this.customComponents.push({
+        type: 'view',
+        title: `未命名`,
+        components: [
+
+        ],
+        tag: '自定义组件'
+      });
+    }
   }
 };
 </script>
