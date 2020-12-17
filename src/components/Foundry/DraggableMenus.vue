@@ -16,6 +16,15 @@
         class="menu-item draggable"
       >
         <a @click="add(m)">{{ m.title }}</a>
+        <el-popover
+          :open-delay="500"
+          trigger="hover"
+        >
+          <div>
+            xxx
+          </div>
+          <i slot="reference" class="more el-icon-more" />
+        </el-popover>
       </li>
       <li v-if="addable" slot="footer" class="menu-item">
         <a class="menu-item-add" @click="$emit('add')">添加</a>
@@ -74,6 +83,7 @@ export default {
   margin: 0;
   flex: auto;
   .menu-item {
+    position: relative;
     font-size: 12px;
     display: block;
     text-align: center;
@@ -102,6 +112,19 @@ export default {
         color: #409eff;
         border-color: #409eff;
       }
+    }
+    .more {
+      position: absolute;
+      right: 5px;
+      top: 9px;
+      rotate: 90deg;
+      color: #999;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+    &:hover .more {
+      opacity: 1;
     }
   }
 }
