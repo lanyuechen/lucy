@@ -8,12 +8,12 @@
     <el-tabs>
       <el-tab-pane label="表单" lazy>
         <viewer
-          v-model="dataForm"
+          v-model="formData"
           :data-source="dataSource"
           :form-config="formConfig"
         />
         <!-- 大写用于区分原code标签 -->
-        <Code :json="dataForm" />
+        <Code :json="formData" />
       </el-tab-pane>
       <el-tab-pane label="JSON" lazy>
         <Code :json="dataSource" />
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      dataForm: {}
+      formData: {}
     };
   }
 };

@@ -11,7 +11,7 @@
           <editor
             :current.sync="current"
             :data-source="dataSource"
-            :data-form="dataForm"
+            :form-data="formData"
             :form-config="formConfig"
             @click="(c) => current = c.id"
           />
@@ -19,7 +19,7 @@
         <el-tab-pane label="预览" name="viewer">
           <viewer
             v-if="mainTab === 'viewer'"
-            v-model="dataForm"
+            v-model="formData"
             :data-source="dataSource"
             :form-config="formConfig"
           />
@@ -36,7 +36,7 @@
             v-model="formConfig"
             :data-source="formDefines"
           />
-          <code><pre>{{ JSON.stringify(dataForm, undefined, 2) }}</pre></code>
+          <code><pre>{{ JSON.stringify(formData, undefined, 2) }}</pre></code>
         </el-tab-pane>
         <el-tab-pane v-if="current" label="属性配置" name="attr">
           <!-- 使用v-if是为了防止view渲染的时候因为el-tab-pane导致的显示错误 -->
@@ -82,7 +82,7 @@ export default {
       mainTab: 'editor',
       currentConfig: 'form',
       formConfig: {},
-      dataForm: {},
+      formData: {},
       previewVisible: false,
     };
   },

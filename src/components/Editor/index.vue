@@ -20,9 +20,9 @@
           @remove="remove(c.id)"
         >
           <form-item
-            v-model="dataForm[c.key]"
+            v-model="formData[c.key]"
             :config="c"
-            :disabled="c.disabled | calcCondition(dataForm)"
+            :disabled="c.disabled | calcCondition(formData)"
           />
         </form-box>
       </draggable>
@@ -36,7 +36,7 @@ import FormBox from '@/components/FormBox';
 import { uuid, calcCondition } from '@/utils/util';
 
 export default {
-  props: ['formConfig', 'current', 'dataSource', 'dataForm'],
+  props: ['formConfig', 'current', 'dataSource', 'formData'],
   components: {
     draggable,
     FormBox,

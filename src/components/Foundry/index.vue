@@ -4,6 +4,7 @@
       <draggable-menus
         title="自定义组件"
         :data-source="myMenus"
+        :operations="operations"
         addable
         @click="addComponent"
         @add="create"
@@ -32,11 +33,17 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+
+    <modal
+      ref="rename"
+      title="重命名"
+    />
   </div>
 </template>
 
 <script>
 import { uuid } from '@/utils/util';
+import Modal from '@/components/Modal';
 import DraggableMenus from './DraggableMenus';
 import EditorPanel from './EditorPanel';
 
@@ -45,12 +52,18 @@ export default {
   components: {
     DraggableMenus,
     EditorPanel,
+    Modal,
   },
   data() {
     return {
-      current: '',
-      myMenus: [],
-      actives: [],
+      operations: [
+        { title: '编辑', icon: 'edit', handler: this.edit },
+        { title: '重命名', icon: 'edit-outline', handler: this.showRenameModal },
+        { title: '删除', icon: 'delete', handler: this.remove },
+      ],
+      current: '', // 当前显示的tab的id
+      myMenus: [], // 自定义组件列表
+      actives: [], // 打开的tabs列表
       menus: this.prepareMenus(this.config.components),
     };
   },
@@ -82,13 +95,30 @@ export default {
       this.myMenus.push(newMenu);
       this.actives.push(newMenu);
     },
+    edit(item) {
+      this.actives.push(item);
+      this.current = item.id;
+    },
     save(components) {
       const menu = this.myMenus.find(d => d.id === this.current);
       if (menu) {
         menu.components = components;
       }
     },
-    open() {
+    showRenameModal(item) {
+      this.$refs.rename.open([{
+        title: '名称',
+        key: 'title',
+      }], (res) => {
+        this.rename(item, res);
+      });
+    },
+    rename(item, { title }) {
+      // 对象都是引用类型，修改myMenus中的属性，对应actives中的属性也会被修改
+      const menu = this.myMenus.find(d => d.id === item.id);
+      menu.title = title;
+    },
+    remove() {
 
     },
     close(id) {

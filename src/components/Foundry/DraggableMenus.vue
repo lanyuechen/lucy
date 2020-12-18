@@ -17,15 +17,17 @@
       >
         <a @click="add(m)">{{ m.title }}</a>
         <el-popover
-          v-if="addable"
+          v-if="operations.length"
           :visible-arrow="false"
           trigger="click"
           popper-class="no-padding"
         >
           <ul class="context-menu">
-            <li><a><i class="el-icon-edit" />&nbsp;&nbsp;编辑</a></li>
-            <li><a><i class="el-icon-edit-outline" />&nbsp;&nbsp;重命名</a></li>
-            <li><a><i class="el-icon-delete" />&nbsp;&nbsp;删除</a></li>
+            <li v-for="(op, idx2) in operations" :key="idx2">
+              <a @click="op.handler(m)">
+                <i :class="`el-icon-${op.icon}`" />&nbsp;&nbsp;{{ op.title }}
+              </a>
+            </li>
           </ul>
           <i slot="reference" class="more el-icon-more" />
         </el-popover>
@@ -45,6 +47,10 @@ export default {
   props: {
     title: String,
     dataSource: Array,
+    operations: {
+      type: Array,
+      default: () => []
+    },
     addable: {
       type: Boolean,
       default: () => false
