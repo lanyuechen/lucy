@@ -123,6 +123,7 @@ export default {
       border: none;
       .el-tabs__content {
         height: calc(100% - 49px);
+        padding: 15px;
         .el-tab-pane {
           height: 100%;
         }
@@ -142,9 +143,17 @@ export default {
   .right {
     flex: none;
     width: 300px;
-    .el-tabs {
+    border-left: 1px solid rgb(224, 224, 224);
+    &>>>.el-tabs {
       box-shadow: none;
       height: 100%;
+      .el-tabs__content {
+        height: calc(100% - 39px);
+        padding: 15px;
+        .el-tab-pane {
+          height: 100%;
+        }
+      }
     }
     &>h2 {
       padding: 8px 12px;

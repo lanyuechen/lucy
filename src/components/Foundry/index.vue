@@ -16,8 +16,17 @@
         @click="add"
       />
     </div>
-    <div class="content">
-      <editor-panel ref="editorPanel" :config="config" />
+    <div class="right">
+      <el-tabs v-model="current" type="border-card" closable @tab-remove="close">
+        <el-tab-pane
+          v-for="item in actives"
+          :key="item.id"
+          :name="item.id"
+          :label="item.title"
+        >
+          <editor-panel ref="editorPanel" :config="config" />
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -35,8 +44,9 @@ export default {
   },
   data() {
     return {
-      id: '',
+      current: '',
       myMenus: [],
+      actives: [],
       menus: this.prepareMenus(this.config.components),
     };
   },
@@ -51,19 +61,28 @@ export default {
       );
     },
     add(item) {
-      this.$refs.editorPanel.add(item);
+      const idx = this.actives.findIndex(d => d.id === this.current);
+      if (idx > -1) {
+        this.$refs.editorPanel[idx].add(item);
+      }
     },
     createPanel() {
-      this.id = uuid();
-      this.myMenus.push({
-        id: this.id,
+      this.current = uuid();
+      const newMenu = {
+        id: this.current,
         type: 'view',
         title: `未命名`,
         components: [
 
         ],
         tag: '自定义组件'
-      });
+      };
+      this.myMenus.push(newMenu);
+      this.actives.push(newMenu);
+    },
+    close(id) {
+      const idx = this.actives.findIndex(d => d.id === id);
+      this.actives.splice(idx, 1);
     }
   }
 };
@@ -82,11 +101,23 @@ export default {
     display: flex;
     flex-direction: column;
   }
-  .content {
+  .right {
     flex: auto;
     background: rgb(250, 250, 250);
     display: flex;
     flex-direction: column;
+    &>>>.el-tabs {
+      height: 100%;
+      box-shadow: none;
+      border: none;
+      .el-tabs__content {
+        height: calc(100% - 39px);
+        padding: 0;
+        .el-tab-pane {
+          height: 100%;
+        }
+      }
+    }
   }
 }
 </style>

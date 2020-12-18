@@ -11,8 +11,8 @@
       :clone="prepareClone"
     >
       <li
-        v-for="m in dataSource"
-        :key="m.type"
+        v-for="(m, idx) in dataSource"
+        :key="idx"
         class="menu-item draggable"
       >
         <a @click="add(m)">{{ m.title }}</a>
