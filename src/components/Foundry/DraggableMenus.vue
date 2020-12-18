@@ -61,9 +61,9 @@ export default {
     prepareClone(item) {
       const id = uuid();
       return {
+        ...item,
         id,
         key: `${item.type}_${id.substr(0, 4)}`,
-        ...item
       };
     },
     add(item) {

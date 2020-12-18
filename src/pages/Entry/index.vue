@@ -1,7 +1,6 @@
 <template>
   <Foundry
     :config="config"
-    :data-source="dataSource"
   />
 </template>
 
@@ -17,7 +16,6 @@ export default {
   data() {
     return {
       config: CONFIG,
-      dataSource: [],
     };
   }
 };
