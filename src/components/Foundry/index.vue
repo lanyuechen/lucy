@@ -5,15 +5,15 @@
         title="自定义组件"
         :data-source="myMenus"
         addable
-        @click="add"
-        @add="createPanel"
+        @click="addComponent"
+        @add="create"
       />
       <draggable-menus
         v-for="menu in menus"
         :key="menu[0]"
         :title="menu[0]"
         :data-source="menu[1]"
-        @click="add"
+        @click="addComponent"
       />
     </div>
     <div class="right">
@@ -24,7 +24,11 @@
           :name="item.id"
           :label="item.title"
         >
-          <editor-panel ref="editorPanel" :config="config" />
+          <editor-panel
+            ref="editorPanel"
+            :data-source="item.components"
+            @save="save"
+          />
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -60,25 +64,32 @@ export default {
         }, {})
       );
     },
-    add(item) {
+    addComponent(item) {
       const idx = this.actives.findIndex(d => d.id === this.current);
       if (idx > -1) {
         this.$refs.editorPanel[idx].add(item);
       }
     },
-    createPanel() {
+    create() {
       this.current = uuid();
       const newMenu = {
         id: this.current,
         type: 'view',
         title: `未命名`,
-        components: [
-
-        ],
+        components: [],
         tag: '自定义组件'
       };
       this.myMenus.push(newMenu);
       this.actives.push(newMenu);
+    },
+    save(components) {
+      const menu = this.myMenus.find(d => d.id === this.current);
+      if (menu) {
+        menu.components = components;
+      }
+    },
+    open() {
+
     },
     close(id) {
       const idx = this.actives.findIndex(d => d.id === id);

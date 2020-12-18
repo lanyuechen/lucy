@@ -4,7 +4,7 @@
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
-        <el-button type="text">保存</el-button>
+        <el-button type="text" @click="$emit('save', dataSource)">保存</el-button>
       </div>
       <el-tabs v-model="mainTab" tab-position="bottom" type="border-card">
         <el-tab-pane label="编辑" name="editor">
@@ -30,7 +30,7 @@
       </el-tabs>
     </div>
     <div class="right">
-      <el-tabs v-model="currentConfig" type="border-card">
+      <el-tabs v-model="currentConfig" tab-position="bottom" type="border-card">
         <el-tab-pane label="表单配置" name="form">
           <viewer
             v-model="formConfig"
@@ -62,9 +62,10 @@ import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
 import Code from '@/components/Code';
 import ModalPreview from './ModalPreview';
+import CONFIG from '@/pages/Entry/config.json';
 
 export default {
-  props: ['config'],
+  props: ['dataSource'],
   components: {
     FormBox,
     Editor,
@@ -73,14 +74,13 @@ export default {
   },
   data() {
     return {
-      props: this.config.props,
-      defines: this.config.defines,
-      formDefines: this.config.form,
+      props: CONFIG.props,
+      defines: CONFIG.defines,
+      formDefines: CONFIG.form,
 
       current: '',
       mainTab: 'editor',
       currentConfig: 'form',
-      dataSource: [],
       formConfig: {},
       dataForm: {},
       previewVisible: false,
@@ -148,7 +148,7 @@ export default {
       box-shadow: none;
       height: 100%;
       .el-tabs__content {
-        height: calc(100% - 39px);
+        height: calc(100% - 49px);
         padding: 15px;
         .el-tab-pane {
           height: 100%;
