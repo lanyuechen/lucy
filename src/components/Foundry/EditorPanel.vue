@@ -74,8 +74,6 @@ export default {
   },
   data() {
     return {
-      props: CONFIG.props,
-      defines: CONFIG.defines,
       formDefines: CONFIG.form,
 
       current: '',
@@ -95,8 +93,8 @@ export default {
       if (!c) {
         return;
       }
-      const props = this.props[c.type] || [];
-      return this.defines.filter(d => props.includes(d.tag));
+      const props = CONFIG.components.find(d => d.type === c.type).props || [];
+      return CONFIG.reference.filter(d => props.includes(d.tag));
     }
   },
   methods: {

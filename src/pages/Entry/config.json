@@ -3,17 +3,20 @@
     {
       "type": "input",
       "title": "单行文本",
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "placeholder", "defaultValue"]
     },
     {
       "type": "number",
       "title": "数字",
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "placeholder", "defaultValueNumber"]
     },
     {
       "type": "textarea",
       "title": "多行文本",
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "placeholder", "defaultValue"]
     },
     {
       "type": "select",
@@ -22,7 +25,8 @@
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
       ],
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "placeholder", "defaultValue", "options"]
     },
     {
       "type": "checkbox-group",
@@ -31,7 +35,8 @@
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
       ],
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "defaultValueArray"]
     },
     {
       "type": "radio-group",
@@ -40,42 +45,50 @@
         {"key": "option1", "value": "选项1"},
         {"key": "option2", "value": "选项2"}
       ],
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic", "defaultValue"]
     },
     {
       "type": "switch",
       "title": "开关",
-      "tag": "基础组件"
+      "tag": "基础组件",
+      "props": ["basic"]
     },
     {
       "type": "date",
       "title": "日期",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "date-range",
       "title": "日期范围",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "time",
       "title": "时间",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "time-range",
       "title": "时间范围",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "date-time",
       "title": "日期时间",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "date-time-range",
       "title": "日期时间范围",
-      "tag": "日期时间组件"
+      "tag": "日期时间组件",
+      "props": ["basic"]
     },
     {
       "type": "dynamic",
@@ -92,7 +105,8 @@
           "placeholder": "value"
         }
       ],
-      "tag": "高级组件"
+      "tag": "高级组件",
+      "props": ["basic"]
     },
     {
       "type": "view",
@@ -109,7 +123,8 @@
           "placeholder": "value"
         }
       ],
-      "tag": "高级组件"
+      "tag": "高级组件",
+      "props": ["basic"]
     }
   ],
   "form": [
@@ -131,51 +146,7 @@
       ]
     }
   ],
-  "props": {
-    "input": [
-      "basic", "placeholder", "defaultValue"
-    ],
-    "number": [
-      "basic", "placeholder", "defaultValueNumber"
-    ],
-    "textarea": [
-      "basic", "placeholder", "defaultValue"
-    ],
-    "select": [
-      "basic", "placeholder", "defaultValue", "options"
-    ],
-    "checkbox-group": [
-      "basic", "defaultValueArray"
-    ],
-    "radio-group": [
-      "basic", "defaultValue"
-    ],
-    "switch": [
-      "basic"
-    ],
-    "date": [
-      "basic"
-    ],
-    "date-range": [
-      "basic"
-    ],
-    "time": [
-      "basic"
-    ],
-    "time-range": [
-      "basic"
-    ],
-    "date-time": [
-      "basic"
-    ],
-    "date-time-range": [
-      "basic"
-    ],
-    "dynamic": [
-      "basic"
-    ]
-  },
-  "defines": [
+  "reference": [
     {
       "type": "input",
       "title": "标题",
