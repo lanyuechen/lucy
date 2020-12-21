@@ -19,12 +19,13 @@
       />
     </div>
     <div class="right">
-      <el-tabs v-model="current" type="border-card" closable @tab-remove="close">
+      <el-tabs v-model="current" type="border-card" @tab-remove="close">
         <el-tab-pane
           v-for="item in actives"
           :key="item.id"
           :name="item.id"
           :label="item.title"
+          :closable="item.id !== '0'"
         >
           <editor-panel
             ref="editorPanel"
@@ -64,7 +65,15 @@ export default {
       ],
       current: '', // 当前显示的tab的id
       myMenus: [], // 自定义组件列表
-      actives: [], // 打开的tabs列表
+      actives: [
+        {
+          id: '0',
+          type: 'view',
+          title: `默认`,
+          components: [],
+          tag: '自定义组件'
+        }
+      ], // 打开的tabs列表
       menus: this.prepareMenus(this.config.components),
     };
   },
@@ -145,6 +154,9 @@ export default {
     close(id) {
       const idx = this.actives.findIndex(d => d.id === id);
       this.actives.splice(idx, 1);
+      if (id === this.current && this.actives[0]) {
+        this.current = this.actives[0].id;
+      }
     }
   }
 };
