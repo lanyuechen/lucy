@@ -1,0 +1,126 @@
+components:
+# type|title|tag|...props
+- input|单行文本|基础组件|basic|placeholder|defaultValue
+- number|数字|基础组件|basic|placeholder|defaultValueNumber
+- textarea|多行文本|基础组件|basic|placeholder|defaultValue
+
+- type: select
+  title: 下拉框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+  props:
+  - basic
+  - placeholder
+  - defaultValue
+  - options
+- type: checkbox-group
+  title: 复选框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+  props:
+  - basic
+  - defaultValueArray
+- type: radio-group
+  title: 单选框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+  props:
+  - basic
+  - defaultValue
+
+- switch|开关|基础组件|basic
+- date|日期|日期时间组件|basic
+- date-range|日期范围|日期时间组件|basic
+- time|时间|日期时间组件|basic
+- time-range|时间范围|日期时间组件|basic
+- date-time|日期时间|日期时间组件|basic
+- date-time-range|日期时间范围|日期时间组件|basic
+
+- type: dynamic
+  title: 动态组件
+  components:
+  - type: input
+    key: key
+    placeholder: key
+  - type: input
+    key: value
+    placeholder: value
+  tag: 高级组件
+  props:
+  - basic
+- type: view
+  title: 视图组件
+  components:
+  - type: input
+    key: key
+    placeholder: key
+  - type: input
+    key: value
+    placeholder: value
+  tag: 高级组件
+  props:
+  - basic
+form:
+- type: input
+  title: 标签宽度
+  key: labelWidth
+  defaultValue: auto
+- type: select
+  title: 对齐方式
+  key: labelPosition
+  defaultValue: right
+  options:
+  - key: left
+    value: 左对齐
+  - key: right
+    value: 右对齐
+  - key: top
+    value: 顶部对齐
+reference:
+- type: input
+  title: 标题
+  key: title
+  tag: basic
+- type: input
+  title: 字段索引
+  key: key
+  tag: basic
+- type: input
+  title: 占位内容
+  key: placeholder
+  tag: placeholder
+- type: input
+  title: 默认值
+  key: defaultValue
+  tag: defaultValue
+- type: checkbox-group
+  title: 默认值
+  key: defaultValue
+  tag: defaultValueArray
+- type: number
+  title: 默认值
+  key: defaultValue
+  tag: defaultValueNumber
+- type: dynamic
+  title: 选项
+  key: options
+  components:
+  - type: input
+    key: key
+    placeholder: key
+  - type: input
+    key: value
+    placeholder: value
+  tag: options
