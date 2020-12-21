@@ -30,6 +30,7 @@
           <editor-panel
             ref="editorPanel"
             :data-source="item.components"
+            :config="config"
             @save="save"
           />
         </el-tab-pane>

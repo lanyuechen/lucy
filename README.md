@@ -11,11 +11,11 @@
 | type | enum | 表单项类型，详见[表单项类型](#表单项类型) | input | 是 |
 | title | string | 表单项标题 | - | 否 |
 | key | string | 表单项的key值，在添加到编辑器中时系统生成，用户可编辑 | - | 是 |
-| defaultValue | any | 表单项的默认值 | - | 否 |
+| options | array | type=select,checkbox-group,radio-group等选项 | - | 否 |
 | tag | string | 表单项分类标签，用于分类或表单项属性配置项筛选等 | - | 否 |
 | props | string[] | 表单项属性配置表单 | - | 否 |
-| options | array | type=select,checkbox-group,radio-group等选项 | - | 否 |
 | components | array | type=dynamic,view时的表单配置，相当于嵌套 | - | 否 |
+| 其它 | any | 任何值都可以写入到配置中，只要表单项组件在解析的时候使用即可，例如defaultValue、placeholder等 | - | 否 |
 
 #### 表单项类型
 

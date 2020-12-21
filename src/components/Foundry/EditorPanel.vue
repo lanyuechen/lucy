@@ -34,7 +34,7 @@
         <el-tab-pane label="表单配置" name="form">
           <viewer
             v-model="formConfig"
-            :data-source="formDefines"
+            :data-source="config.form"
           />
           <code><pre>{{ JSON.stringify(formData, undefined, 2) }}</pre></code>
         </el-tab-pane>
@@ -62,10 +62,9 @@ import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
 import Code from '@/components/Code';
 import ModalPreview from './ModalPreview';
-import CONFIG from '@/pages/Entry/config.json';
 
 export default {
-  props: ['dataSource'],
+  props: ['dataSource', 'config'],
   components: {
     FormBox,
     Editor,
@@ -74,8 +73,6 @@ export default {
   },
   data() {
     return {
-      formDefines: CONFIG.form,
-
       current: '',
       mainTab: 'editor',
       currentConfig: 'form',
@@ -93,8 +90,8 @@ export default {
       if (!c) {
         return;
       }
-      const props = CONFIG.components.find(d => d.type === c.type).props || [];
-      return CONFIG.reference.filter(d => props.includes(d.tag));
+      const props = this.config.components.find(d => d.type === c.type).props || [];
+      return this.config.reference.filter(d => props.includes(d.tag));
     }
   },
   methods: {

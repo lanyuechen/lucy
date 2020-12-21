@@ -6,7 +6,8 @@
 
 <script>
 import Foundry from '@/components/Foundry';
-import CONFIG from './config.json';
+// import CONFIG from './config.json';
+import CONFIG from './config.yaml';
 
 export default {
   name: 'App',
