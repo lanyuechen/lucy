@@ -5,8 +5,9 @@
         title="自定义组件"
         :data-source="myMenus"
         :operations="operations"
+        :current="current"
         addable
-        @click="addComponent"
+        @click="edit"
         @add="create"
       />
       <draggable-menus
@@ -68,6 +69,14 @@ export default {
     };
   },
   methods: {
+    prepareClone(item) {
+      const id = uuid();
+      return {
+        ...item,
+        id,
+        key: `${item.type}_${id.substr(0, 4)}`,
+      };
+    },
     prepareMenus(menus) {
       return Object.entries(
         menus.reduce((p, n) => {
@@ -80,7 +89,7 @@ export default {
     addComponent(item) {
       const idx = this.actives.findIndex(d => d.id === this.current);
       if (idx > -1) {
-        this.$refs.editorPanel[idx].add(item);
+        this.$refs.editorPanel[idx].add(this.prepareClone(item));
       }
     },
     create() {
@@ -96,7 +105,9 @@ export default {
       this.actives.push(newMenu);
     },
     edit(item) {
-      this.actives.push(item);
+      if (!this.actives.find(d => d.id === item.id)) {
+        this.actives.push(item);
+      }
       this.current = item.id;
     },
     save(components) {
@@ -118,8 +129,18 @@ export default {
       const menu = this.myMenus.find(d => d.id === item.id);
       menu.title = title;
     },
-    remove() {
-
+    remove(item) {
+      const idx = this.myMenus.findIndex(d => d.id === item.id);
+      if (idx > -1) {
+        this.myMenus.splice(idx, 1);
+      }
+      const aIdx = this.actives.findIndex(d => d.id === item.id);
+      if (aIdx > -1) {
+        this.actives.splice(aIdx, 1);
+      }
+      if (this.current === item.id && this.actives[0]) {
+        this.current = this.actives[0].id;
+      }
     },
     close(id) {
       const idx = this.actives.findIndex(d => d.id === id);

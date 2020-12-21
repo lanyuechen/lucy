@@ -15,7 +15,7 @@
         :key="idx"
         class="menu-item draggable"
       >
-        <a @click="add(m)">{{ m.title }}</a>
+        <a @click="$emit('click', m)" :class="{active: current && current === m.id}">{{ m.title }}</a>
         <el-popover
           v-if="operations.length"
           :visible-arrow="false"
@@ -47,6 +47,7 @@ export default {
   props: {
     title: String,
     dataSource: Array,
+    current: String,
     operations: {
       type: Array,
       default: () => []
@@ -71,9 +72,6 @@ export default {
         id,
         key: `${item.type}_${id.substr(0, 4)}`,
       };
-    },
-    add(item) {
-      this.$emit('click', this.prepareClone(item));
     }
   }
 };
@@ -117,6 +115,10 @@ export default {
         background: transparent;
         cursor: pointer;
         user-select: none;
+      }
+      &.active {
+        color: #409eff;
+        border-color: #409eff;
       }
       &:hover {
         color: #409eff;
