@@ -15,7 +15,7 @@
         :key="idx"
         class="menu-item draggable"
       >
-        <a @click="$emit('click', m)" :class="{active: current && current === m.id}">{{ m.title }}</a>
+        <a @click="$emit('click', prepareClone(m), m)" :class="{active: current && current === m.id}">{{ m.title }}</a>
         <el-popover
           v-if="operations.length"
           :visible-arrow="false"

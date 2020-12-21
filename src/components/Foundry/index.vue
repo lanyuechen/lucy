@@ -7,7 +7,7 @@
         :operations="operations"
         :current="current"
         addable
-        @click="edit"
+        @click="(item, origin) => edit(origin)"
         @add="create"
       />
       <draggable-menus
@@ -59,7 +59,6 @@ export default {
   data() {
     return {
       operations: [
-        { title: '编辑', icon: 'edit', handler: this.edit },
         { title: '重命名', icon: 'edit-outline', handler: this.showRenameModal },
         { title: '删除', icon: 'delete', handler: this.remove },
       ],
@@ -78,14 +77,6 @@ export default {
     };
   },
   methods: {
-    prepareClone(item) {
-      const id = uuid();
-      return {
-        ...item,
-        id,
-        key: `${item.type}_${id.substr(0, 4)}`,
-      };
-    },
     prepareMenus(menus) {
       return Object.entries(
         menus.reduce((p, n) => {
@@ -98,7 +89,7 @@ export default {
     addComponent(item) {
       const idx = this.actives.findIndex(d => d.id === this.current);
       if (idx > -1) {
-        this.$refs.editorPanel[idx].add(this.prepareClone(item));
+        this.$refs.editorPanel[idx].add(item);
       }
     },
     create() {
@@ -129,6 +120,7 @@ export default {
       this.$refs.rename.open([{
         title: '名称',
         key: 'title',
+        defaultValue: item.title,
       }], (res) => {
         this.rename(item, res);
       });
