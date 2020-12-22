@@ -2,24 +2,15 @@ components:
 - type: input
   title: 单行文本
   tag: 基础组件
-  props:
-  - basic
-  - placeholder
-  - defaultValue
+  props: [basic, placeholder, defaultValue]
 - type: number
   title: 数字
   tag: 基础组件
-  props:
-  - basic
-  - placeholder
-  - defaultValueNumber
+  props: [basic, placeholder, defaultValueNumber]
 - type: textarea
   title: 多行文本
   tag: 基础组件
-  props:
-  - basic
-  - placeholder
-  - defaultValue
+  props: [basic, placeholder, defaultValue]
 - type: select
   title: 下拉框
   options:
@@ -28,11 +19,7 @@ components:
   - key: option2
     value: 选项2
   tag: 基础组件
-  props:
-  - basic
-  - placeholder
-  - defaultValue
-  - options
+  props: [basic, placeholder, defaultValue, options]
 - type: checkbox-group
   title: 复选框
   options:
@@ -41,9 +28,7 @@ components:
   - key: option2
     value: 选项2
   tag: 基础组件
-  props:
-  - basic
-  - defaultValueArray
+  props: [basic, defaultValueArray]
 - type: radio-group
   title: 单选框
   options:
@@ -52,44 +37,35 @@ components:
   - key: option2
     value: 选项2
   tag: 基础组件
-  props:
-  - basic
-  - defaultValue
+  props: [basic, defaultValue]
 - type: switch
   title: 开关
   tag: 基础组件
-  props:
-  - basic
+  props: [basic]
 - type: date
   title: 日期
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: date-range
   title: 日期范围
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: time
   title: 时间
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: time-range
   title: 时间范围
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: date-time
   title: 日期时间
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: date-time-range
   title: 日期时间范围
   tag: 日期时间组件
-  props:
-  - basic
+  props: [basic]
 - type: dynamic
   title: 动态组件
   components:
@@ -100,8 +76,7 @@ components:
     key: value
     placeholder: value
   tag: 高级组件
-  props:
-  - basic
+  props: [basic]
 - type: view
   title: 视图组件
   components:
@@ -112,8 +87,7 @@ components:
     key: value
     placeholder: value
   tag: 高级组件
-  props:
-  - basic
+  props: [basic]
 form:
 - type: input
   title: 标签宽度
