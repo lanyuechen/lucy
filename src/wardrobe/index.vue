@@ -1,19 +1,13 @@
 <template>
-  <el-form-item
-    :label="config.title"
-    :prop="config.key"
-    :rules="config.rules"
-  >
-    <component
-      :is="`wardrobe-${config.type || 'input'}`"
-      :options="config.options"
-      :disabled="disabled"
-      :placeholder="config.placeholder"
-      :components="config.components"
-      :value="value"
-      @input="(val) => $emit('input', val)"
-    />
-  </el-form-item>
+  <component
+    :is="`wardrobe-${config.type || 'input'}`"
+    :options="config.options"
+    :disabled="disabled"
+    :placeholder="config.placeholder"
+    :components="config.components"
+    :value="value"
+    @input="(val) => $emit('input', val)"
+  />
 </template>
 
 <script>

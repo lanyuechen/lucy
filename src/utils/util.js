@@ -24,3 +24,29 @@ export function calcCondition(condition, data) {
   }
   return false;
 }
+
+export function linkageShow(linkage, data) {
+  if (!linkage) {
+    return true;
+  }
+  if (linkage.type === 'shown') {
+    return calcCondition(linkage.condition, data);
+  }
+  if (linkage.type === 'hidden') {
+    return !calcCondition(linkage.condition, data);
+  }
+  return true;
+}
+
+export function linkageEnable(linkage, data) {
+  if (!linkage) {
+    return false;
+  }
+  if (linkage.type === 'disabled') {
+    return calcCondition(linkage.condition, data);
+  }
+  if (linkage.type === 'enabled') {
+    return !calcCondition(linkage.condition, data);
+  }
+  return false;
+}

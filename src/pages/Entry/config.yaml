@@ -3,9 +3,6 @@ components:
   title: 单行文本
   tag: 基础组件
   props: [basic, placeholder, defaultValue, rules, linkage]
-  rules:
-  - required: true
-    message: xxx不能为空
 - type: number
   title: 数字
   tag: 基础组件
@@ -163,13 +160,13 @@ reference:
     key: type
     options:
     - key: 禁用
-      value: disable
+      value: disabled
     - key: 可用
-      value: enable
+      value: enabled
     - key: 隐藏
       value: hidden
     - key: 显示
-      value: show
+      value: shown
   - type: textarea
     title: 条件设置
     key: condition

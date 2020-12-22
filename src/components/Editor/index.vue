@@ -3,6 +3,7 @@
     <div class="empty" v-if="!dataSource.length">从左侧拖拽或点击来添加字段</div>
     <el-form
       v-bind="formConfig"
+      :model="formData"
     >
       <draggable
         :list="dataSource"
@@ -19,11 +20,18 @@
           @copy="copy(c.id)"
           @remove="remove(c.id)"
         >
-          <form-item
-            v-model="formData[c.key]"
-            :config="c"
-            :disabled="c.disabled | calcCondition(formData)"
-          />
+          <el-form-item
+            :prop="c.key"
+            :label="c.title"
+            :rules="c.rules"
+          >
+            <form-item
+              v-if="linkageShow(c.linkage, formData[c.key])"
+              v-model="formData[c.key]"
+              :config="c"
+              :disabled="linkageEnable(c.linkage, formData[c.key])"
+            />
+          </el-form-item>
         </form-box>
       </draggable>
     </el-form>
@@ -33,16 +41,13 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import { uuid, calcCondition } from '@/utils/util';
+import { uuid, linkageShow, linkageEnable } from '@/utils/util';
 
 export default {
   props: ['formConfig', 'current', 'dataSource', 'formData'],
   components: {
     draggable,
     FormBox,
-  },
-  filters: {
-    calcCondition
   },
   data() {
     return {
@@ -64,7 +69,9 @@ export default {
         id: newId,
         key: `${this.dataSource[idx].type}_${newId.substr(0, 4)}`
       });
-    }
+    },
+    linkageShow,
+    linkageEnable,
   }
 };
 </script>
