@@ -61,5 +61,5 @@ export function prepareRules(rules) {
       return { required: true, ...others };
     }
     return d;
-  })
+  });
 }
