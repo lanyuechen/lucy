@@ -1,52 +1,23 @@
 components:
-# type|title|tag|...props
-- input|单行文本|基础组件|basic|placeholder|defaultValue
-- number|数字|基础组件|basic|placeholder|defaultValueNumber
-- textarea|多行文本|基础组件|basic|placeholder|defaultValue
+# type|title|key|defaultValue|tag|...props
+- input|单行文本|||基础组件|basic|placeholder|defaultValue
+- number|数字|||基础组件|basic|placeholder|defaultValueNumber
+- textarea|多行文本|||基础组件|basic|placeholder|defaultValue
 
-- type: select
-  title: 下拉框
-  options:
-  - key: option1
-    value: 选项1
-  - key: option2
-    value: 选项2
-  tag: 基础组件
-  props:
-  - basic
-  - placeholder
-  - defaultValue
-  - options
-- type: checkbox-group
-  title: 复选框
-  options:
-  - key: option1
-    value: 选项1
-  - key: option2
-    value: 选项2
-  tag: 基础组件
-  props:
-  - basic
-  - defaultValueArray
-- type: radio-group
-  title: 单选框
-  options:
-  - key: option1
-    value: 选项1
-  - key: option2
-    value: 选项2
-  tag: 基础组件
-  props:
-  - basic
-  - defaultValue
+- type: select|下拉框|||基础组件|basic|placeholder|defaultValue|options
+  options: option1:选项1|option2:选项2
+- type: checkbox-group|复选框|||基础组件|basic|defaultValueArray
+  options: option1:选项1|option2:选项2
+- type: radio-group|单选框|||基础组件|basic|defaultValue
+  options: option1:选项1|option2:选项2
 
-- switch|开关|基础组件|basic
-- date|日期|日期时间组件|basic
-- date-range|日期范围|日期时间组件|basic
-- time|时间|日期时间组件|basic
-- time-range|时间范围|日期时间组件|basic
-- date-time|日期时间|日期时间组件|basic
-- date-time-range|日期时间范围|日期时间组件|basic
+- switch|开关|||基础组件|basic
+- date|日期|||日期时间组件|basic
+- date-range|日期范围|||日期时间组件|basic
+- time|时间|||日期时间组件|basic
+- time-range|时间范围|||日期时间组件|basic
+- date-time|日期时间|||日期时间组件|basic
+- date-time-range|日期时间范围|||日期时间组件|basic
 
 - type: dynamic
   title: 动态组件
@@ -72,55 +43,22 @@ components:
   tag: 高级组件
   props:
   - basic
+
 form:
-- type: input
-  title: 标签宽度
-  key: labelWidth
-  defaultValue: auto
-- type: select
-  title: 对齐方式
-  key: labelPosition
-  defaultValue: right
-  options:
-  - key: left
-    value: 左对齐
-  - key: right
-    value: 右对齐
-  - key: top
-    value: 顶部对齐
+- input|标签宽度|labelWidth|auto  
+- type: select|对齐方式|labelPosition|right
+  options: left:左对齐|right:右对齐|top:顶部对齐
+
 reference:
-- type: input
-  title: 标题
-  key: title
-  tag: basic
-- type: input
-  title: 字段索引
-  key: key
-  tag: basic
-- type: input
-  title: 占位内容
-  key: placeholder
-  tag: placeholder
-- type: input
-  title: 默认值
-  key: defaultValue
-  tag: defaultValue
-- type: checkbox-group
-  title: 默认值
-  key: defaultValue
-  tag: defaultValueArray
-- type: number
-  title: 默认值
-  key: defaultValue
-  tag: defaultValueNumber
-- type: dynamic
-  title: 选项
-  key: options
+- input|标题|title||basic
+- input|字段索引|key||basic
+- input|站位内容|placeholder||placeholder
+- input|默认值|defaultValue||defaultValue
+- checkbox-group|默认值|defaultValue||defaultValueArray
+- number|默认值|defaultValue||defaultValueNumber
+- type: dynamic|选项|options||options
   components:
-  - type: input
-    key: key
+  - type: input||key
     placeholder: key
-  - type: input
-    key: value
+  - type: input||value
     placeholder: value
-  tag: options
