@@ -2,6 +2,7 @@
   <el-form-item
     :label="config.title"
     :prop="config.key"
+    :rules="config.rules"
   >
     <component
       :is="`wardrobe-${config.type || 'input'}`"

@@ -8,6 +8,7 @@
 import Foundry from '@/components/Foundry';
 // import CONFIG from './config.json';
 import CONFIG from './config.yaml';
+// import CONFIG from './config-simple.yaml';
 
 export default {
   name: 'App',
@@ -16,7 +17,8 @@ export default {
   },
   data() {
     return {
-      config: this.prepareConfig(CONFIG),
+      // config: this.prepareConfig(CONFIG),
+      config: CONFIG,
     };
   },
   methods: {
