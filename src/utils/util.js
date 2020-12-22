@@ -50,3 +50,16 @@ export function linkageEnable(linkage, data) {
   }
   return false;
 }
+
+export function prepareRules(rules) {
+  if (!rules) {
+    return rules;
+  }
+  return rules.map(d => {
+    const { type, ...others } = d;
+    if (type === 'required') {
+      return { required: true, ...others };
+    }
+    return d;
+  })
+}

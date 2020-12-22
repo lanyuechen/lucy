@@ -5,7 +5,7 @@
         :key="c.id"
         :prop="c.key"
         :label="c.title"
-        :rules="c.rules"
+        :rules="c.rules | prepareRules"
       >
         <form-item
           v-if="linkageShow(c.linkage, value)"
@@ -20,9 +20,12 @@
 </template>
 
 <script>
-import { linkageShow, linkageEnable } from '@/utils/util';
+import { linkageShow, linkageEnable, prepareRules } from '@/utils/util';
 
 export default {
+  filters: {
+    prepareRules,
+  },
   props: {
     formConfig: {
       type: Object,

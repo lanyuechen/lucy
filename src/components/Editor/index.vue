@@ -23,7 +23,7 @@
           <el-form-item
             :prop="c.key"
             :label="c.title"
-            :rules="c.rules"
+            :rules="c.rules | prepareRules"
           >
             <form-item
               v-if="linkageShow(c.linkage, formData[c.key])"
@@ -41,10 +41,13 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import { uuid, linkageShow, linkageEnable } from '@/utils/util';
+import { uuid, linkageShow, linkageEnable, prepareRules } from '@/utils/util';
 
 export default {
   props: ['formConfig', 'current', 'dataSource', 'formData'],
+  filters: {
+    prepareRules,
+  },
   components: {
     draggable,
     FormBox,
@@ -87,7 +90,8 @@ export default {
 }
 .drag-area {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
 }
 .empty {
   color: #ccc;

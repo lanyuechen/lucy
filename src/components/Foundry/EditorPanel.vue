@@ -113,19 +113,21 @@ export default {
     display: flex;
     flex-direction: column;
     &>>>.el-tabs {
+      flex: none;
       height: 100%;
       box-shadow: none;
       border: none;
+      .el-tabs__header {
+        margin-top: 0;
+      }
       .el-tabs__content {
-        height: calc(100% - 49px);
+        height: calc(100% - 79px);
         padding: 15px;
         .el-tab-pane {
           height: 100%;
+          overflow: auto;
         }
       }
-    }
-    form {
-      height: 100%;
     }
     .header {
       height: 40px;
@@ -147,6 +149,7 @@ export default {
         padding: 15px;
         .el-tab-pane {
           height: 100%;
+          overflow: auto;
         }
       }
     }
