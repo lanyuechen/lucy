@@ -159,14 +159,14 @@ reference:
     title: 联动类型
     key: type
     options:
-    - key: 禁用
-      value: disabled
-    - key: 可用
-      value: enabled
-    - key: 隐藏
-      value: hidden
-    - key: 显示
-      value: shown
+    - key: disabled
+      value: 禁用
+    - key: enabled
+      value: 可用
+    - key: hidden
+      value: 隐藏
+    - key: shown
+      value: 显示
   - type: textarea
     title: 条件设置
     key: condition

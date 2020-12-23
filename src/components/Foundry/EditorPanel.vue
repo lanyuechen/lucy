@@ -91,7 +91,7 @@ export default {
         return;
       }
       const props = this.config.components.find(d => d.type === c.type).props || [];
-      return this.config.reference.filter(d => props.includes(d.tag));
+      return props.map(tag => this.config.reference.find(d => d.tag === tag));
     }
   },
   methods: {
