@@ -25,8 +25,8 @@ export default {
       window.addEventListener('mousemove', this.handleMousemove);
     },
     handleMousemove(e) {
-      const x = e.clientX * 100 / window.innerWidth + "%";
-      const y = e.clientY * 100 / window.innerHeight + "%";
+      const x = e.clientX * 100 / window.innerWidth + '%';
+      const y = e.clientY * 100 / window.innerHeight + '%';
 
       this.$refs.left.style.left = x;
       this.$refs.left.style.top = y;
@@ -65,7 +65,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 .mouse {
   width: 100px;
