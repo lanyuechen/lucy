@@ -57,6 +57,9 @@ export default {
     EditorPanel,
     Modal,
   },
+  mounted() {
+    this.init();
+  },
   data() {
     return {
       operations: [
@@ -78,6 +81,19 @@ export default {
     };
   },
   methods: {
+    init() {
+      this.myMenus = this.load();
+    },
+    save(components) {
+      localStorage.setItem('lucy.db', JSON.stringify(this.myMenus));
+    },
+    load() {
+      try {
+        return JSON.parse(localStorage.getItem('lucy.db')) || [];
+      } catch (err) {
+        return [];
+      }
+    },
     prepareMenus(menus) {
       return Object.entries(
         menus.reduce((p, n) => {
@@ -110,12 +126,6 @@ export default {
         this.actives.push(item);
       }
       this.current = item.id;
-    },
-    save(components) {
-      const menu = this.myMenus.find(d => d.id === this.current);
-      if (menu) {
-        menu.components = components;
-      }
     },
     showRenameModal(item) {
       this.$refs.rename.open([{
@@ -150,7 +160,7 @@ export default {
       if (id === this.current && this.actives[0]) {
         this.current = this.actives[0].id;
       }
-    }
+    },
   }
 };
 </script>

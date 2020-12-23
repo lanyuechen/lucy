@@ -77,10 +77,6 @@ components:
 mapping:
   input: [basic, placeholder, defaultValue, rules, linkage]
   number: [basic, placeholder, defaultValueNumber]
-  textarea: [basic, placeholder, defaultValue]
-  select: [basic, placeholder, defaultValue, options]
-  checkbox-group: [basic, defaultValueArray]
-  radio-group: [basic, defaultValue]
 form:
 - type: select
   title: 组件尺寸
@@ -143,7 +139,6 @@ reference:
       type: hidden
       condition: type==='number'
   tag: rules
-
 - type: view
   title: 联动设置
   components:
@@ -172,22 +167,7 @@ reference:
   title: 默认值
   key: defaultValue
   tag: defaultValue
-- type: checkbox-group
-  title: 默认值
-  key: defaultValue
-  tag: defaultValueArray
 - type: number
   title: 默认值
   key: defaultValue
   tag: defaultValueNumber
-- type: dynamic
-  title: 选项
-  key: options
-  components:
-  - type: input
-    key: key
-    placeholder: key
-  - type: input
-    key: value
-    placeholder: value
-  tag: options
