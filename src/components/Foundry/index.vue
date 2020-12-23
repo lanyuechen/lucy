@@ -19,13 +19,12 @@
       />
     </div>
     <div class="right">
-      <el-tabs v-model="current" type="border-card" @tab-remove="close">
+      <el-tabs v-if="actives.length" v-model="current" type="border-card" closable @tab-remove="close">
         <el-tab-pane
           v-for="item in actives"
           :key="item.id"
           :name="item.id"
           :label="item.title"
-          :closable="item.id !== '0'"
         >
           <editor-panel
             ref="editorPanel"
@@ -35,6 +34,13 @@
           />
         </el-tab-pane>
       </el-tabs>
+      <div class="empty" v-else>
+        <ul>
+          <li>添加自定义组件</li>
+          <li>拖动或点击左侧组件到编辑框内</li>
+        </ul>
+        <el-button type="primary" icon="el-icon-plus" plain @click="create()">创建</el-button>
+      </div>
     </div>
 
     <modal
@@ -68,15 +74,7 @@ export default {
       ],
       current: '', // 当前显示的tab的id
       myMenus: [], // 自定义组件列表
-      actives: [
-        {
-          id: '0',
-          type: 'view',
-          title: `默认`,
-          components: [],
-          tag: '自定义组件'
-        }
-      ], // 打开的tabs列表
+      actives: [], // 打开的tabs列表
       menus: this.prepareMenus(this.config.components),
     };
   },
@@ -166,6 +164,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.empty {
+  text-align: center;
+  margin-top: 50%;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
 .container {
   display: flex;
   height: 100%;
