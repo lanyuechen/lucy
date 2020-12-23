@@ -90,7 +90,7 @@ export default {
       if (!c) {
         return;
       }
-      const props = this.config.components.find(d => d.type === c.type).props || [];
+      const props = this.config.mapping[c.type] || [];
       return props.map(tag => this.config.reference.find(d => d.tag === tag));
     }
   },
