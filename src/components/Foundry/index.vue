@@ -35,6 +35,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="empty" v-else>
+        <eye />
         <ul>
           <li>添加自定义组件</li>
           <li>拖动或点击左侧组件到编辑框内</li>
@@ -53,6 +54,7 @@
 <script>
 import { uuid } from '@/utils/util';
 import Modal from '@/components/Modal';
+import Eye from '@/components/Eye';
 import DraggableMenus from './DraggableMenus';
 import EditorPanel from './EditorPanel';
 
@@ -62,6 +64,7 @@ export default {
     DraggableMenus,
     EditorPanel,
     Modal,
+    Eye,
   },
   mounted() {
     this.init();
@@ -166,7 +169,9 @@ export default {
 <style lang="scss" scoped>
 .empty {
   text-align: center;
-  margin-top: 50%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   ul {
     list-style: none;
     padding: 0;
