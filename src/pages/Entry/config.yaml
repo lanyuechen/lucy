@@ -76,7 +76,6 @@ components:
 
 mapping:
   input: [basic, placeholder, defaultValue, rules, linkage]
-  number: [basic, placeholder, defaultValueNumber]
 form:
 - type: select
   title: 组件尺寸
@@ -108,6 +107,7 @@ form:
   - key: top
     value: 顶部对齐
 reference:
+# basic
 - type: input
   title: 标题
   key: title
@@ -116,7 +116,7 @@ reference:
   title: 字段索引
   key: key
   tag: basic
-
+# rules
 - type: dynamic
   title: 规则设置
   key: rules
@@ -139,6 +139,7 @@ reference:
       type: hidden
       condition: type==='number'
   tag: rules
+# linkage
 - type: view
   title: 联动设置
   components:
@@ -154,20 +155,27 @@ reference:
       value: 隐藏
     - key: shown
       value: 显示
+  - type: dynamic
+    title: 条件设置
+    key: condition
+    components:
+    - type: select
+      key: field
+    - type: select
+      key: on
+    - type: input
+      key: value
   - type: textarea
     title: 条件设置
     key: condition
   tag: linkage
-
+# placeholder
 - type: input
   title: 占位内容
   key: placeholder
   tag: placeholder
+# defaultValue
 - type: input
   title: 默认值
   key: defaultValue
   tag: defaultValue
-- type: number
-  title: 默认值
-  key: defaultValue
-  tag: defaultValueNumber
