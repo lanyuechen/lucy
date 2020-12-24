@@ -28,6 +28,7 @@
         >
           <editor-panel
             ref="editorPanel"
+            :source="myMenus"
             :data-source="item.components"
             :config="config"
             @save="save"
@@ -35,7 +36,7 @@
         </el-tab-pane>
       </el-tabs>
       <div class="empty" v-else>
-        <eye />
+        <!-- <eye /> -->
         <ul>
           <li>添加自定义组件</li>
           <li>拖动或点击左侧组件到编辑框内</li>

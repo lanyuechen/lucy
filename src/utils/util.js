@@ -63,3 +63,10 @@ export function prepareRules(rules) {
     return d;
   });
 }
+
+export function prepareConfig(config, source) {
+  if (config.$ref) {
+    return Object.assign(source.find(d => d.id === config.$ref) || {}, config);
+  }
+  return config;
+}

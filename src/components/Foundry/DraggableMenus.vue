@@ -70,6 +70,7 @@ export default {
       return {
         ...item,
         id,
+        $ref: item.id,
         key: `${item.type}_${id.substr(0, 4)}`,
       };
     }

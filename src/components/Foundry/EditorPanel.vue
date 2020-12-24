@@ -10,6 +10,7 @@
         <el-tab-pane label="编辑" name="editor">
           <editor
             :current.sync="current"
+            :source="source"
             :data-source="dataSource"
             :form-data="formData"
             :form-config="formConfig"
@@ -20,6 +21,7 @@
           <viewer
             v-if="mainTab === 'viewer'"
             v-model="formData"
+            :source="source"
             :data-source="dataSource"
             :form-config="formConfig"
           />
@@ -64,7 +66,7 @@ import Code from '@/components/Code';
 import ModalPreview from './ModalPreview';
 
 export default {
-  props: ['dataSource', 'config'],
+  props: ['source', 'dataSource', 'config'],
   components: {
     FormBox,
     Editor,

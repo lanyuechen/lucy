@@ -28,7 +28,7 @@
             <form-item
               v-if="linkageShow(c.linkage, formData[c.key])"
               v-model="formData[c.key]"
-              :config="c"
+              :config="c | prepareConfig(source)"
               :disabled="linkageEnable(c.linkage, formData[c.key])"
             />
           </el-form-item>
@@ -41,12 +41,13 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
-import { uuid, linkageShow, linkageEnable, prepareRules } from '@/utils/util';
+import { uuid, linkageShow, linkageEnable, prepareRules, prepareConfig } from '@/utils/util';
 
 export default {
-  props: ['formConfig', 'current', 'dataSource', 'formData'],
+  props: ['source', 'formConfig', 'current', 'dataSource', 'formData'],
   filters: {
     prepareRules,
+    prepareConfig,
   },
   components: {
     draggable,

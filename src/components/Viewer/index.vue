@@ -9,7 +9,7 @@
       >
         <form-item
           v-if="linkageShow(c.linkage, value)"
-          :config="c"
+          :config="c | prepareConfig(source)"
           :value="value[c.key]"
           :disabled="linkageEnable(c.linkage, value)"
           @input="(val) => handleInput(c.key, val)"
@@ -20,13 +20,18 @@
 </template>
 
 <script>
-import { linkageShow, linkageEnable, prepareRules } from '@/utils/util';
+import { linkageShow, linkageEnable, prepareRules, prepareConfig } from '@/utils/util';
 
 export default {
   filters: {
     prepareRules,
+    prepareConfig,
   },
   props: {
+    source: {
+      type: Array,
+      default: () => []
+    },
     formConfig: {
       type: Object,
       default: () => ({
