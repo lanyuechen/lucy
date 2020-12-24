@@ -1,10 +1,8 @@
 <template>
   <component
     :is="`wardrobe-${config.type || 'input'}`"
-    :options="config.options"
+    v-bind="config"
     :disabled="disabled"
-    :placeholder="config.placeholder"
-    :components="config.components"
     :value="value"
     @input="(val) => $emit('input', val)"
   />

@@ -142,6 +142,8 @@ reference:
 # linkage
 - type: view
   title: 联动设置
+  formConfig:
+    labelPosition: top
   components:
   - type: select
     title: 联动类型
@@ -158,11 +160,15 @@ reference:
   - type: dynamic
     title: 条件设置
     key: condition
+    formConfig:
+      inline: true
     components:
     - type: select
       key: field
+      options: []
     - type: select
       key: on
+      options: =|>|>=|<|<=|!=
     - type: input
       key: value
   - type: textarea

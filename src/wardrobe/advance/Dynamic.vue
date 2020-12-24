@@ -9,6 +9,7 @@
       <el-col style="flex: auto">
         <viewer
           :data-source="components"
+          :form-config="formConfig"
           :value="value[idx]"
           @input="(val) => handleChange(idx, val)"
         />
@@ -25,7 +26,7 @@
 <script>
 export default {
   props: [
-    'value', 'components'
+    'value', 'components', 'formConfig'
   ],
   data() {
     return {

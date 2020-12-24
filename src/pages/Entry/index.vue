@@ -17,13 +17,14 @@ export default {
   },
   data() {
     return {
-      // config: this.prepareConfig(CONFIG),
-      config: CONFIG,
+      config: this.prepareConfig(CONFIG),
+      // config: CONFIG,
     };
   },
   methods: {
     prepareConfig(config) {
       return {
+        ...config,
         components: this.prepareComponents(config.components),
         form: this.prepareComponents(config.form),
         reference: this.prepareComponents(config.reference),
@@ -60,13 +61,21 @@ export default {
       };
     },
     prepareOptions(options) {
-      if (typeof options === 'string') {
-        return options.split('|').map(option => {
-          const o = option.split(':');
-          return { key: o[0], value: o[1] || o[0] };
-        });
+      if (!options) {
+        return [];
       }
-      return options;
+      if (typeof options === 'string') {
+        options = options.split('|');
+      }
+      return options.map(option => {
+        if (typeof option === 'string') {
+          option = option.split(':');
+        }
+        if (Array.isArray(option)) {
+          return { key: option[0], value: option[1] || option[0] };
+        }
+        return option;
+      });
     }
   }
 };
