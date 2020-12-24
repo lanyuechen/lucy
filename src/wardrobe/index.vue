@@ -1,7 +1,7 @@
 <template>
   <component
     :is="`wardrobe-${config.type || 'input'}`"
-    v-bind="config"
+    v-bind="configFilter(config)"
     :disabled="disabled"
     :value="value"
     @input="(val) => $emit('input', val)"
@@ -52,6 +52,13 @@ export default {
     }
   },
   methods: {
+    configFilter(config) {
+      const newConfig = { ...config };
+      ['$ref'].forEach(k => {
+        delete newConfig[k];
+      });
+      return newConfig;
+    }
   }
 };
 </script>

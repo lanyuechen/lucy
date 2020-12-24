@@ -49,12 +49,13 @@
           />
         </el-tab-pane>
       </el-tabs>
+
+      <modal-preview
+        :visible.sync="previewVisible"
+        :data-source="dataSource"
+        :form-config="formConfig"
+      />
     </pane>
-    <modal-preview
-      :visible.sync="previewVisible"
-      :data-source="dataSource"
-      :form-config="formConfig"
-    />
   </splitpanes>
 </template>
 
