@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="left">
+  <splitpanes class="container">
+    <pane class="left">
       <div class="header">
         <el-button type="text">导入</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
@@ -30,8 +30,8 @@
           <Code :json="dataSource" />
         </el-tab-pane>
       </el-tabs>
-    </div>
-    <div class="right">
+    </pane>
+    <pane class="right" size="30">
       <el-tabs v-model="currentConfig" tab-position="bottom" type="border-card">
         <el-tab-pane label="表单配置" name="form">
           <viewer
@@ -49,14 +49,13 @@
           />
         </el-tab-pane>
       </el-tabs>
-    </div>
-
+    </pane>
     <modal-preview
       :visible.sync="previewVisible"
       :data-source="dataSource"
       :form-config="formConfig"
     />
-  </div>
+  </splitpanes>
 </template>
 
 <script>
@@ -110,10 +109,6 @@ export default {
   height: 100%;
   align-items: stretch;
   .left {
-    flex: auto;
-    background: rgb(250, 250, 250);
-    display: flex;
-    flex-direction: column;
     &>>>.el-tabs {
       flex: none;
       height: 100%;
@@ -140,9 +135,7 @@ export default {
     }
   }
   .right {
-    flex: none;
-    width: 300px;
-    border-left: 1px solid rgb(224, 224, 224);
+    width: 256px;
     &>>>.el-tabs {
       box-shadow: none;
       height: 100%;
