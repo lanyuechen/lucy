@@ -187,8 +187,7 @@ export default {
     width: 256px;
     border-right: 1px solid rgb(224, 224, 224);
     padding: 8px 0;
-    display: flex;
-    flex-direction: column;
+    overflow: auto;
   }
   .right {
     flex: auto;

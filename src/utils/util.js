@@ -70,3 +70,7 @@ export function prepareConfig(config, source) {
   }
   return config;
 }
+
+export function isMobile() {
+  return 'ontouchstart' in window;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'is-mobile': isMobile}">
     <Entry />
     <!-- <Test /> -->
   </div>
@@ -8,12 +8,18 @@
 <script>
 import Entry from '@/pages/Entry';
 import Test from '@/pages/Test';
+import { isMobile } from '@/utils/util';
 
 export default {
   name: 'App',
   components: {
     Entry,
     Test
+  },
+  data() {
+    return {
+      isMobile: isMobile()
+    };
   }
 };
 </script>
@@ -45,6 +51,7 @@ body {
 }
 #app {
   height: 100%;
+  width: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -85,5 +92,13 @@ a {
 .no-padding {
   padding: 0;
   min-width: 100px;
+}
+@media (orientation: portrait) {
+  #app.is-mobile {
+    height: 100vw;
+    width: 100vh;
+    transform-origin: 50vw;
+    transform: rotate(90deg);
+  }
 }
 </style>
