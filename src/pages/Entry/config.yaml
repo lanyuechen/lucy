@@ -140,7 +140,7 @@ reference:
       condition: type==='number'
   tag: rules
 # linkage
-- type: view
+- type: dynamic
   title: 联动设置
   formConfig:
     labelPosition: top

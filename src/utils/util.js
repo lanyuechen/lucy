@@ -55,7 +55,7 @@ export function prepareRules(rules) {
   if (!rules) {
     return rules;
   }
-  return rules.map(d => {
+  return rules.filter(d => d).map(d => {
     const { type, ...others } = d;
     if (type === 'required') {
       return { required: true, ...others };
