@@ -14,7 +14,7 @@
             :data-source="dataSource"
             :form-data="formData"
             :form-config="formConfig"
-            @click="(c) => current = c.id"
+            @click="select"
           />
         </el-tab-pane>
         <el-tab-pane label="预览" name="viewer">
@@ -93,13 +93,17 @@ export default {
         return;
       }
       const props = this.config.mapping[c.type] || [];
-      return props.map(tag => this.config.reference.find(d => d.tag === tag));
+      return this.config.reference.filter(ref => props.includes(ref.tag));
     }
   },
   methods: {
     add(item) {
       this.dataSource.push(item);
     },
+    select(item) {
+      this.current = item.id;
+      this.currentConfig = 'attr';
+    }
   }
 };
 </script>

@@ -90,7 +90,7 @@ a {
   }
 }
 .no-padding {
-  padding: 0;
+  padding: 0!important;
   min-width: 100px;
 }
 @media (orientation: portrait) {
