@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="{'is-mobile': isMobile}">
-    <!-- <Entry /> -->
-    <Test />
+    <Entry />
+    <!-- <Test /> -->
   </div>
 </template>
 
