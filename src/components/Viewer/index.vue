@@ -1,5 +1,5 @@
 <template>
-  <el-form v-bind="formConfig" :model="value" class="theme-mini">
+  <el-form v-bind="formConfig" :model="value" :class="theme ? `theme-${theme}` : ''">
     <template v-for="(c, idx) in dataSource">
       <el-form-item
         v-if="linkageShow(c.linkage, value)"
@@ -32,7 +32,6 @@
 
 <script>
 import { linkageShow, linkageEnable, prepareRules, prepareConfig } from '@/utils/util';
-import './theme.scss';
 
 export default {
   filters: {
@@ -57,6 +56,9 @@ export default {
     value: {
       type: Object,
       default: () => ({})
+    },
+    theme: {
+      type: String,
     }
   },
   // props: [

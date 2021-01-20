@@ -139,11 +139,8 @@ reference:
       type: hidden
       condition: type==='number'
   tag: rules
-# linkage
-- type: dynamic
+- type: view
   title: 联动设置
-  formConfig:
-    labelPosition: top
   components:
   - type: select
     title: 联动类型
@@ -160,20 +157,18 @@ reference:
   - type: dynamic
     title: 条件设置
     key: condition
-    formConfig:
-      inline: true
     components:
     - type: select
+      title: 字段
       key: field
       options: []
     - type: select
-      key: on
-      options: =|>|>=|<|<=|!=
+      title: 条件
+      key: 'on'
+      options: "=|>|>=|<|<=|!="
     - type: input
+      title: 值
       key: value
-  - type: textarea
-    title: 条件设置
-    key: condition
   tag: linkage
 # placeholder
 - type: input

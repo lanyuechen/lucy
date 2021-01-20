@@ -10,6 +10,8 @@ import Entry from '@/pages/Entry';
 import Test from '@/pages/Test';
 import { isMobile } from '@/utils/util';
 
+import '@/themes/theme.scss';
+
 export default {
   name: 'App',
   components: {

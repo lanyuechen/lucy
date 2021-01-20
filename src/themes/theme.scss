@@ -16,7 +16,10 @@ $text-color: #666;
     top: -1px;
   }
   .el-form-item {
-    margin-bottom: 8px;
+    margin-bottom: 8px!important;
+    &:last-child {
+      margin-bottom: 0;
+    }
     &>.el-form-item__label-wrap {
       margin-left: 0!important;
     }

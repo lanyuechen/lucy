@@ -37,6 +37,7 @@
           <viewer
             v-model="formConfig"
             :data-source="config.form"
+            theme="mini"
           />
           <code><pre>{{ JSON.stringify(formData, undefined, 2) }}</pre></code>
         </el-tab-pane>
@@ -46,6 +47,7 @@
             v-if="currentConfig === 'attr'"
             v-model="dataSource[currentIdx]"
             :data-source="currentProps"
+            theme="mini"
           />
         </el-tab-pane>
       </el-tabs>

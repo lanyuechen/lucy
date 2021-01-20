@@ -7,11 +7,12 @@
       type="flex"
     >
       <el-col style="flex: auto">
+        <!-- 下面在components外多封装了一层view，这样可以折叠该部分表单了 -->
         <viewer
-          :data-source="components"
+          :data-source="[{ type: 'view', key: '_key', title: `项目${idx + 1}`, components }]"
           :form-config="formConfig"
-          :value="value[idx]"
-          @input="(val) => handleChange(idx, val)"
+          :value="{ _key: value[idx] }"
+          @input="({ _key }) => handleChange(idx, _key)"
         />
       </el-col>
       <el-col style="width: 36px;">
