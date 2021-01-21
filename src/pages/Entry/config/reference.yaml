@@ -14,6 +14,36 @@ defaultValue:
   type: input
   title: 默认值
   key: defaultValue
+options:
+  type: view
+  title: 选项配置
+  key: optionConfig
+  components:
+  - type: radio-group
+    title: 选项类型
+    key: type
+    options: local:本地数据|remote:远程数据
+    defaultValue: local
+  - type: dynamic
+    title: 选项
+    key: options
+    useView: true
+    components:
+    - type: input
+      key: key
+      title: 选项值
+    - type: input
+      key: value
+      title: 显示名
+    linkage:
+      type: shown
+      condition: type==='local'
+  - type: input
+    title: 接口地址
+    key: url
+    linkage:
+      type: shown
+      condition: type==='remote'
 rules:
   type: dynamic
   title: 规则设置

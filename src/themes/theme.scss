@@ -23,6 +23,10 @@ $text-color: #666;
     &>.el-form-item__label-wrap {
       margin-left: 0!important;
     }
+    // &>.el-form-item__content {
+    //   margin-left: 0!important;
+    //   overflow: hidden;
+    // }
   }
   .form-item-dynamic, .form-item-view {
     &>.el-form-item__label-wrap {

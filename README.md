@@ -14,7 +14,8 @@
 | options | array | type=select,checkbox-group,radio-group等选项 | - | 否 |
 | tag | string | 表单项分类标签，用于分类或表单项属性配置项筛选等 | - | 否 |
 | props | string[] | 表单项属性配置表单 | - | 否 |
-| components | array | type=dynamic,view时的表单配置，相当于嵌套 | - | 否 |
+| components | array | type=dynamic，view时的表单配置，相当于嵌套 | - | 否 |
+| useView | boolean | type=dynamic，组件子项是否折叠 | - | 否 |
 | 其它 | any | 任何值都可以写入到配置中，只要表单项组件在解析的时候使用即可，例如defaultValue、placeholder等 | - | 否 |
 
 #### 表单项类型

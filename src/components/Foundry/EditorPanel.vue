@@ -95,7 +95,12 @@ export default {
         return;
       }
       const props = this.config.mapping[c.type] || [];
-      return props.map(key => this.config.reference[key]).filter(d => d);
+      return props.map(d => {
+        if (typeof d === 'string') {
+          return this.config.reference[d];
+        }
+        return d;
+      }).filter(d => d);
     }
   },
   methods: {
