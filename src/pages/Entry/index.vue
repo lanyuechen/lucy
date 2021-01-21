@@ -6,10 +6,12 @@
 
 <script>
 import Foundry from '@/components/Foundry';
-// import CONFIG from './config.json';
-import CONFIG from './config.yaml';
 // import CONFIG from './config-simple.yaml';
 import prepareConfig from '@/utils/prepare-config';
+import components from './config/components.yaml';
+import form from './config/form-config.yaml';
+import mapping from './config/mapping.yaml';
+import reference from './config/reference.yaml';
 
 export default {
   name: 'App',
@@ -18,7 +20,12 @@ export default {
   },
   data() {
     return {
-      config: prepareConfig(CONFIG),
+      config: prepareConfig({
+        components,
+        form,
+        mapping,
+        reference,
+      }),
       // config: CONFIG,
     };
   },

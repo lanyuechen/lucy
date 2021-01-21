@@ -1,0 +1,29 @@
+- type: select
+  title: 组件尺寸
+  key: size
+  options:
+  - key: medium
+    value: 大
+  - key: small
+    value: 中
+  - key: mini
+    value: 小
+- type: switch
+  title: 行内布局
+  key: inline
+  defaultValue: false
+- type: input
+  title: 标签宽度
+  key: labelWidth
+  defaultValue: auto
+- type: select
+  title: 对齐方式
+  key: labelPosition
+  defaultValue: right
+  options:
+  - key: left
+    value: 左对齐
+  - key: right
+    value: 右对齐
+  - key: top
+    value: 顶部对齐

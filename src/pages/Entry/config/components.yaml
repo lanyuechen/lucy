@@ -1,0 +1,74 @@
+- type: input
+  title: 单行文本
+  tag: 基础组件
+- type: number
+  title: 数字
+  tag: 基础组件
+- type: textarea
+  title: 多行文本
+  tag: 基础组件
+- type: select
+  title: 下拉框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+- type: checkbox-group
+  title: 复选框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+- type: radio-group
+  title: 单选框
+  options:
+  - key: option1
+    value: 选项1
+  - key: option2
+    value: 选项2
+  tag: 基础组件
+- type: switch
+  title: 开关
+  tag: 基础组件
+- type: date
+  title: 日期
+  tag: 日期时间组件
+- type: date-range
+  title: 日期范围
+  tag: 日期时间组件
+- type: time
+  title: 时间
+  tag: 日期时间组件
+- type: time-range
+  title: 时间范围
+  tag: 日期时间组件
+- type: date-time
+  title: 日期时间
+  tag: 日期时间组件
+- type: date-time-range
+  title: 日期时间范围
+  tag: 日期时间组件
+- type: dynamic
+  title: 动态组件
+  components:
+  - type: input
+    key: key
+    placeholder: key
+  - type: input
+    key: value
+    placeholder: value
+  tag: 高级组件
+- type: view
+  title: 视图组件
+  components:
+  - type: input
+    key: key
+    placeholder: key
+  - type: input
+    key: value
+    placeholder: value
+  tag: 高级组件

@@ -53,6 +53,9 @@ export default function prepareConfig(config) {
     ...config,
     components: prepareComponents(config.components),
     form: prepareComponents(config.form),
-    reference: prepareComponents(config.reference),
+    reference: Object.entries(config.reference).reduce((p, n) => {
+      p[n[0]] = prepareComponent(n[1]);
+      return p;
+    }, {}),
   };
 }

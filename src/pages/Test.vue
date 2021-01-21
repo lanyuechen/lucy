@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import data from './data.json';
+import data from './Entry/config/reference.yaml';
 import { prepareComponents } from '@/utils/prepare-config';
 export default {
   data() {
     return {
       value: {},
-      components: prepareComponents(data)
+      components: prepareComponents(Object.values(data))
     };
   },
   methods: {
