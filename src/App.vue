@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{'is-mobile': isMobile}">
+  <div id="app">
     <Entry />
     <!-- <Test /> -->
   </div>
@@ -8,7 +8,6 @@
 <script>
 import Entry from '@/pages/Entry';
 import Test from '@/pages/Test';
-import { isMobile } from '@/utils/util';
 
 import '@/themes/theme.scss';
 
@@ -20,7 +19,7 @@ export default {
   },
   data() {
     return {
-      isMobile: isMobile()
+
     };
   }
 };
@@ -94,13 +93,5 @@ a {
 .no-padding {
   padding: 0!important;
   min-width: 100px;
-}
-@media (orientation: portrait) {
-  #app.is-mobile {
-    height: 100vw;
-    width: 100vh;
-    transform-origin: 50vw;
-    transform: rotate(90deg);
-  }
 }
 </style>
