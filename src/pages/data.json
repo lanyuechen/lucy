@@ -15,6 +15,7 @@
     "type": "dynamic",
     "title": "规则设置",
     "key": "rules",
+    "useView": true,
     "components": [
       {
         "type": "select",
@@ -79,6 +80,7 @@
         "type": "dynamic",
         "title": "条件设置",
         "key": "condition",
+        "useView": true,
         "components": [
           {
             "type": "select",
