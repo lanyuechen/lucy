@@ -13,6 +13,7 @@
           :data-source="[{ type: 'view', key: '_key', title: `项目${idx + 1}`, components }]"
           :form-config="formConfig"
           :value="{ _key: value[idx] }"
+          :theme="theme"
           @input="({ _key }) => handleChange(idx, _key)"
         />
         <!-- 默认不折叠 -->
@@ -21,6 +22,7 @@
           :data-source="components"
           :form-config="formConfig"
           :value="value[idx]"
+          :theme="theme"
           @input="(val) => handleChange(idx, val)"
         />
       </el-col>
@@ -36,7 +38,7 @@
 <script>
 export default {
   props: [
-    'value', 'components', 'formConfig', 'useView'
+    'value', 'components', 'formConfig', 'useView', 'theme'
   ],
   data() {
     return {

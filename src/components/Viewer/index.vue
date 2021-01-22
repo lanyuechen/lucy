@@ -13,7 +13,7 @@
         :label="c.title"
         :rules="c.rules | prepareRules"
       >
-        <template v-if="['dynamic', 'view'].includes(c.type)" slot="label">
+        <template v-if="theme && ['dynamic', 'view'].includes(c.type)" slot="label">
           <div class="collapsed-btn" @click="toggle(idx)">
             {{ collapsed.includes(idx) ? '+' : '-'}}
           </div>
@@ -23,6 +23,7 @@
           :config="c | prepareConfig(source)"
           :value="value[c.key]"
           :disabled="linkageEnable(c.linkage, value)"
+          :theme="theme"
           @input="(val) => handleInput(c.key, val)"
         />
       </el-form-item>

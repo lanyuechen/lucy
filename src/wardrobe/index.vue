@@ -4,6 +4,7 @@
     v-bind="configFilter(config)"
     :disabled="disabled"
     :value="value"
+    :theme="theme"
     @input="(val) => $emit('input', val)"
   />
 </template>
@@ -34,7 +35,7 @@ export default {
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types
-    'config', 'value', 'disabled'
+    'config', 'value', 'disabled', 'theme'
   ],
   data() {
     return {
