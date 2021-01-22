@@ -1,27 +1,13 @@
 <template>
-  <div id="app">
-    <!-- <Entry /> -->
-    <Test />
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-import Entry from '@/pages/Entry';
-import Test from '@/pages/Test';
 
 import '@/themes/theme.scss';
 
 export default {
   name: 'App',
-  components: {
-    Entry,
-    Test
-  },
-  data() {
-    return {
-
-    };
-  }
 };
 </script>
 

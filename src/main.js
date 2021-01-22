@@ -5,6 +5,8 @@ import App from './App';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import VueRouter from 'vue-router';
+
 import ace from 'ace-builds';
 
 import { Splitpanes, Pane } from 'splitpanes';
@@ -14,7 +16,10 @@ import Viewer from '@/components/Viewer';
 import FormItem from '@/wardrobe';
 import Ace from '@/components/Ace';
 
+import routes from './routes';
+
 Vue.use(ace);
+Vue.use(VueRouter);
 
 Vue.component('ace', Ace);
 Vue.component('splitpanes', Splitpanes);
@@ -32,5 +37,6 @@ Vue.use(Element, {
 new Vue({
   el: '#app',
   components: { App },
+  router: new VueRouter({routes}),
   template: '<App/>'
 });

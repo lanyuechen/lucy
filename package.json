@@ -17,6 +17,7 @@
     "element-ui": "^2.14.1",
     "splitpanes": "^2.3.6",
     "vue": "^2.5.2",
+    "vue-router": "^3.4.9",
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
