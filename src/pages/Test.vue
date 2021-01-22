@@ -6,18 +6,22 @@
       theme="mini"
       @input="(val) => handleChange(val)"
     />
-    <code><pre>{{ JSON.stringify(value) }}</pre></code>
+    <Code :json="value" />
   </div>
 </template>
 
 <script>
-import data from './Entry/config/reference.yaml';
+import reference from './Entry/config/reference.yaml';
+import Code from '@/components/Code';
 import { prepareComponents } from '@/utils/prepare-config';
 export default {
+  components: {
+    Code,
+  },
   data() {
     return {
       value: {},
-      components: prepareComponents(Object.values(data))
+      components: prepareComponents(Object.values(reference)),
     };
   },
   methods: {

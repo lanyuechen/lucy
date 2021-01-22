@@ -14,12 +14,14 @@ export default {
   components: {
     // 基础组件
     'wardrobe-select': require('./basic/Select').default,
-    'wardrobe-checkbox-group': require('./basic/CheckboxGroup').default,
     'wardrobe-radio-group': require('./basic/RadioGroup').default,
+    'wardrobe-checkbox-group': require('./basic/CheckboxGroup').default,
+    'wardrobe-checkbox': require('./basic/Checkbox').default,
     'wardrobe-input': require('./basic/Input').default,
     'wardrobe-number': require('./basic/Number').default,
     'wardrobe-textarea': require('./basic/Textarea').default,
     'wardrobe-switch': require('./basic/Switch').default,
+    'wardrobe-upload': require('./basic/Upload').default,
 
     // 日期时间组件
     'wardrobe-date': require('./date/DatePicker').default,
