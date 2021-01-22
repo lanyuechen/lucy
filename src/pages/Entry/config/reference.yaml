@@ -65,7 +65,7 @@ rules:
     title: 最大值
     key: max
     linkage:
-      type: hidden
+      type: shown
       condition: type==='number'
 linkage:
   type: view
