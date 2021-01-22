@@ -19,7 +19,7 @@
           </div>
           {{ c.title }}
         </template>
-        <form-item
+        <wardrobe
           :config="c | prepareConfig(source)"
           :value="value[c.key]"
           :disabled="linkageEnable(c.linkage, value)"
@@ -31,9 +31,13 @@
 </template>
 
 <script>
+import Wardrobe from '@/wardrobe';
 import { linkageShow, linkageEnable, prepareRules, prepareConfig } from '@/utils/util';
 
 export default {
+  components: {
+    Wardrobe
+  },
   filters: {
     prepareRules,
     prepareConfig,

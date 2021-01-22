@@ -13,7 +13,6 @@ import { Splitpanes, Pane } from 'splitpanes';
 import 'splitpanes/dist/splitpanes.css';
 
 import Viewer from '@/components/Viewer';
-import FormItem from '@/wardrobe';
 import Ace from '@/components/Ace';
 
 import routes from './routes';
@@ -25,7 +24,6 @@ Vue.component('ace', Ace);
 Vue.component('splitpanes', Splitpanes);
 Vue.component('pane', Pane);
 Vue.component('viewer', Viewer);
-Vue.component('form-item', FormItem);
 
 Vue.config.productionTip = false;
 

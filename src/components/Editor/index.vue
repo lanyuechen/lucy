@@ -25,7 +25,7 @@
             :label="c.title"
             :rules="c.rules | prepareRules"
           >
-            <form-item
+            <wardrobe
               v-if="linkageShow(c.linkage, formData[c.key])"
               v-model="formData[c.key]"
               :config="c | prepareConfig(source)"
@@ -41,6 +41,7 @@
 <script>
 import draggable from 'vuedraggable';
 import FormBox from '@/components/FormBox';
+import Wardrobe from '@/wardrobe';
 import { uuid, linkageShow, linkageEnable, prepareRules, prepareConfig } from '@/utils/util';
 
 export default {
@@ -52,6 +53,7 @@ export default {
   components: {
     draggable,
     FormBox,
+    Wardrobe,
   },
   data() {
     return {

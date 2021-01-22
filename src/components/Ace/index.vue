@@ -4,7 +4,7 @@
 
 <script>
 import ace from 'ace-builds';
-import 'ace-builds/webpack-resolver'; // 在 webpack 环境中使用必须要导入
+// import 'ace-builds/webpack-resolver'; // 在 webpack 环境中使用必须要导入
 import 'ace-builds/src-noconflict/theme-monokai'; // 默认设置的主题
 import 'ace-builds/src-noconflict/mode-json'; // 默认设置的语言模式
 
