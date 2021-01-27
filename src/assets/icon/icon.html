@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>demo</title>
+  <link rel="stylesheet" href="./app.css">
+  <script>
+    user_id = null;
+    globalUserId = null;
+    globalRouteName = '';
+    globalUser = 0;
+    globalUserName = '';
+  </script>
+
+  <script>
+    maPageType = 'home';
+    if (maPageType == 'individual') {
+      indiAvatarId = "";
+    }
+  </script>
+
+
+  <!-- To access Vue methods -->
+  <script>vueVM = null;</script>
+
+</head>
+
+<body class="font-sans ">
+
+  <div class="container">
+    <a href="/" class="identicon-link" id="identicon-link">
+      <div id="identicon">
+        <div class="wave"></div>
+      </div>
+    </a>
+
+    <div style="width:240px;" class="mx-auto">
+      <input type="text" oninput="getNewIdenticon(this.value, true)" id="identicon-input" class="mono">
+    </div>
+  </div>
+</body>
+
+<script src="./multiavatar.js"></script>
+
+<script>
+  getNewIdenticon('x', true)
+  
+  function getNewIdenticon(s, input) {
+    document.getElementById('identicon').innerHTML = multiavatar(s);
+  }
+</script>
+
+</html>
