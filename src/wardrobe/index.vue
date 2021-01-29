@@ -2,6 +2,7 @@
   <component
     :is="`wardrobe-${config.type || 'input'}`"
     v-bind="configFilter(config)"
+    :options="config.options | filter"
     :disabled="disabled"
     :value="value"
     :theme="theme"
@@ -39,6 +40,11 @@ export default {
     // eslint-disable-next-line vue/require-prop-types
     'config', 'value', 'disabled', 'theme'
   ],
+  filters: {
+    filter(value) {
+      return value ? value.filter(d => d) : [];
+    }
+  },
   data() {
     return {
 
