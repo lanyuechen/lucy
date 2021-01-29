@@ -21,7 +21,7 @@
         </template>
         <wardrobe
           :config="c | prepareConfig(source)"
-          :value="value[c.key]"
+          :value="c.key ? value[c.key] : value"
           :disabled="linkageEnable(c.linkage, value)"
           :theme="theme"
           @input="(val) => handleInput(c.key, val)"
@@ -84,7 +84,15 @@ export default {
       }
     },
     handleInput(key, val) {
-      this.value[key] = val;
+      if (key) {
+        this.value[key] = val;
+      } else {
+        if (typeof val === 'object') {
+          Object.keys(val).forEach(k => {
+            this.value[k] = val[k];
+          });
+        }
+      }
       this.$emit('input', {
         ...this.value,
       });
