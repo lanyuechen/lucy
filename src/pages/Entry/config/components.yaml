@@ -58,23 +58,23 @@
 - type: date-time-range
   title: 日期时间范围
   tag: 日期时间组件
-- type: dynamic
-  title: 动态组件
-  components:
-  - type: input
-    key: key
-    placeholder: key
-  - type: input
-    key: value
-    placeholder: value
-  tag: 高级组件
-- type: view
-  title: 视图组件
-  components:
-  - type: input
-    key: key
-    placeholder: key
-  - type: input
-    key: value
-    placeholder: value
-  tag: 高级组件
+# - type: dynamic
+#   title: 动态组件(demo)
+#   components:
+#   - type: input
+#     key: key
+#     placeholder: key
+#   - type: input
+#     key: value
+#     placeholder: value
+#   tag: 高级组件
+# - type: view
+#   title: 视图组件(demo)
+#   components:
+#   - type: input
+#     key: key
+#     placeholder: key
+#   - type: input
+#     key: value
+#     placeholder: value
+#   tag: 高级组件

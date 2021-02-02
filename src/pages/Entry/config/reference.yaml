@@ -69,6 +69,7 @@ rules:
 linkage:
   type: view
   title: 联动设置
+  key: linkage
   components:
   - type: select
     title: 联动类型
