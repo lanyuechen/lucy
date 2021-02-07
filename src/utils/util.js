@@ -15,7 +15,7 @@ export function calcCondition(condition, data) {
   if (!condition) {
     return false;
   }
-  const con = condition.replace(/([^()&|='"]+)=+/g, 'data.$1===');
+  const con = condition.replace(/this\./g, 'data.');
   try {
     // eslint-disable-next-line no-eval
     return eval(con);

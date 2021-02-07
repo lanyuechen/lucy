@@ -22,7 +22,7 @@
         <wardrobe
           :config="c | prepareConfig(source)"
           :value="c.key ? value[c.key] : value"
-          :disabled="linkageEnable(c.linkage, value)"
+          :disabled="c.disabled || linkageEnable(c.linkage, value)"
           :theme="theme"
           @input="(val) => handleInput(c.key, val)"
         />

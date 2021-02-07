@@ -1,12 +1,52 @@
 # basic
-input: [title, key, placeholder, defaultValue, rules, linkage]
+input:
+- title
+- key
+- placeholder
+- defaultValue
+- disabled
+- readonly
+- clearable
+- type: switch
+  title: 密码框
+  key: showPassword
+- type: switch
+  title: 限制文本长度
+  key: showWordLimit
+- type: number
+  title: 最大长度
+  defaultValue: 10
+  key: maxlength
+  linkage:
+    type: shown
+    condition: this.showWordLimit && !this.showPassword
+- rules
+- linkage
 select: [title, key, placeholder, options, rules, linkage]
 number: [title, key, rules, linkage]
 radio-group: [title, key, options, rules, linkage]
 checkbox-group: [title, key, options, rules, linkage]
 checkbox: [title, key, rules, linkage]
 switch: [title, key, rules, linkage]
-textarea: [title, key, placeholder, defaultValue, rules, linkage]
+textarea:
+- title
+- key
+- placeholder
+- defaultValue
+- disabled
+- readonly
+- type: switch
+  title: 限制文本长度
+  key: showWordLimit
+- type: number
+  title: 最大长度
+  defaultValue: 100
+  key: maxlength
+  linkage:
+    type: shown
+    condition: this.showWordLimit
+- rules
+- linkage
 upload: [title, key, rules, linkage]
 
 # date

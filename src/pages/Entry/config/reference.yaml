@@ -14,6 +14,18 @@ defaultValue:
   type: input
   title: 默认值
   key: defaultValue
+disabled:
+  type: switch
+  title: 禁用
+  key: disabled
+readonly:
+  type: switch
+  title: 只读
+  key: readonly
+clearable:
+  type: switch
+  title: 可清空
+  key: clearable
 options:
   type: view
   title: 选项配置
@@ -36,13 +48,13 @@ options:
       title: 显示名
     linkage:
       type: shown
-      condition: optionType==='local'
+      condition: this.optionType==='local'
   - type: input
     title: 接口地址
     key: url
     linkage:
       type: shown
-      condition: optionType==='remote'
+      condition: this.optionType==='remote'
 rules:
   type: dynamic
   title: 规则设置
@@ -65,7 +77,7 @@ rules:
     key: max
     linkage:
       type: shown
-      condition: type==='number'
+      condition: this.type==='number'
 linkage:
   type: view
   title: 联动设置

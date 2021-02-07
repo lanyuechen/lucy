@@ -29,7 +29,7 @@
               v-if="linkageShow(c.linkage, formData[c.key])"
               v-model="formData[c.key]"
               :config="c | prepareConfig(source)"
-              :disabled="linkageEnable(c.linkage, formData[c.key])"
+              :disabled="c.disabled || linkageEnable(c.linkage, formData[c.key])"
             />
           </el-form-item>
         </form-box>
