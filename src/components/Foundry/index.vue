@@ -86,8 +86,9 @@ export default {
     init() {
       this.myMenus = this.load();
     },
-    save(components) {
+    save() {
       localStorage.setItem('lucy.db', JSON.stringify(this.myMenus));
+      this.$message.success('保存成功');
     },
     load() {
       try {

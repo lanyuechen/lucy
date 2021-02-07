@@ -2,9 +2,9 @@
   <splitpanes class="container">
     <pane class="left">
       <div class="header">
-        <el-button type="text">导入</el-button>
+        <el-button type="text" @click="helpVisible = true">帮助</el-button>
         <el-button type="text" @click="previewVisible = true">预览</el-button>
-        <el-button type="text" @click="$emit('save', dataSource)">保存</el-button>
+        <el-button type="text" @click="$emit('save')">保存</el-button>
       </div>
       <el-tabs v-model="mainTab" tab-position="bottom" type="border-card">
         <el-tab-pane label="编辑" name="editor">
@@ -57,6 +57,12 @@
         :data-source="dataSource"
         :form-config="formConfig"
       />
+
+      <modal-help
+        :visible.sync="helpVisible"
+        :data-source="dataSource"
+        :form-config="formConfig"
+      />
     </pane>
   </splitpanes>
 </template>
@@ -66,6 +72,7 @@ import FormBox from '@/components/FormBox';
 import Editor from '@/components/Editor';
 import Code from '@/components/Code';
 import ModalPreview from './ModalPreview';
+import ModalHelp from './ModalHelp';
 
 export default {
   props: ['source', 'dataSource', 'config'],
@@ -73,6 +80,7 @@ export default {
     FormBox,
     Editor,
     ModalPreview,
+    ModalHelp,
     Code,
   },
   data() {
@@ -83,6 +91,7 @@ export default {
       formConfig: {},
       formData: {},
       previewVisible: false,
+      helpVisible: false,
     };
   },
   computed: {
