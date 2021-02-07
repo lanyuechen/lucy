@@ -29,7 +29,26 @@ input:
 - rules
 - linkage
 select: [title, key, placeholder, options, rules, linkage]
-number: [title, key, rules, linkage]
+number:
+- title
+- key
+- type: number
+  title: 默认值
+  key: defaultValue
+- type: number
+  title: 步长
+  key: step
+- type: number
+  title: 精度
+  key: precision
+- type: select
+  title: 样式
+  key: controlsPosition
+  options: between:按钮在两侧|right:按钮在右侧
+  defaultValue: between
+- disabled
+- rules
+- linkage
 radio-group: [title, key, options, rules, linkage]
 checkbox-group: [title, key, options, rules, linkage]
 checkbox: [title, key, rules, linkage]

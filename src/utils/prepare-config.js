@@ -30,6 +30,19 @@ export function prepareComponent(component) {
   };
 }
 
+export function prepareMapping(mapping, reference) {
+  const res = {};
+  for (let type in mapping) {
+    res[type] = mapping[type].map(d => {
+      if (typeof d === 'string') {
+        return reference[d] || prepareComponent(d);
+      }
+      return prepareComponent(d);
+    });
+  }
+  return res;
+}
+
 export function prepareOptions(options) {
   if (!options) {
     return [];
@@ -49,13 +62,16 @@ export function prepareOptions(options) {
 }
 
 export default function prepareConfig(config) {
+  const reference = Object.entries(config.reference).reduce((p, n) => {
+    p[n[0]] = prepareComponent(n[1]);
+    return p;
+  }, {});
+
   return {
     ...config,
     components: prepareComponents(config.components),
     form: prepareComponents(config.form),
-    reference: Object.entries(config.reference).reduce((p, n) => {
-      p[n[0]] = prepareComponent(n[1]);
-      return p;
-    }, {}),
+    mapping: prepareMapping(config.mapping, reference),
+    reference,
   };
 }

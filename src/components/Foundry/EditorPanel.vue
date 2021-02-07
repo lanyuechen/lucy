@@ -103,13 +103,7 @@ export default {
       if (!c) {
         return;
       }
-      const props = this.config.mapping[c.type] || [];
-      return props.map(d => {
-        if (typeof d === 'string') {
-          return this.config.reference[d];
-        }
-        return d;
-      }).filter(d => d);
+      return this.config.mapping[c.type] || [];
     }
   },
   methods: {
