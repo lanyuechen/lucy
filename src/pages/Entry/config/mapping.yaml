@@ -73,6 +73,21 @@ textarea:
 - rules
 - linkage
 upload: [title, key, rules, linkage]
+color:
+- title
+- key
+- type: switch
+  title: 显示透明度
+  key: showAlpha
+rate:
+- title
+- key
+- type: switch
+  title: 只读
+  key: disabled
+- type: switch
+  title: 显示分值
+  key: showScore
 
 # date
 date: [title, key, rules, linkage]
@@ -85,3 +100,6 @@ date-time-range: [title, key, rules, linkage]
 # advance
 dynamic: [title, key, rules, linkage]
 view: [title, key, rules, linkage]
+
+# other
+icon: [title, key]

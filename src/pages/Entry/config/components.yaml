@@ -40,6 +40,13 @@
 - type: upload
   title: 上传
   tag: 基础组件
+- type: color
+  title: 颜色
+  tag: 基础组件
+- type: rate
+  title: 评分
+  tag: 基础组件
+
 - type: date
   title: 日期
   tag: 日期时间组件
@@ -58,9 +65,11 @@
 - type: date-time-range
   title: 日期时间范围
   tag: 日期时间组件
+
 - type: icon
   title: 选择Icon
   tag: 其它组件
+
 # - type: dynamic
 #   title: 动态组件(demo)
 #   components:
