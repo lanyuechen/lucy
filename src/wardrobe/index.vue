@@ -35,6 +35,9 @@ export default {
     // 高级组件
     'wardrobe-dynamic': require('./advance/Dynamic').default,
     'wardrobe-view': require('./advance/View').default,
+
+    // 其他
+    'wardrobe-icon': require('./other/Icon').default,
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types

@@ -58,6 +58,9 @@
 - type: date-time-range
   title: 日期时间范围
   tag: 日期时间组件
+- type: icon
+  title: 选择Icon
+  tag: 其它组件
 # - type: dynamic
 #   title: 动态组件(demo)
 #   components:

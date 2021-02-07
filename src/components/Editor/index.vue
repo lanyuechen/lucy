@@ -127,6 +127,8 @@ export default {
 }
 .tag {
   position: absolute;
+  left: 0;
+  bottom: 0;
   border-radius: 0;
 }
 </style>

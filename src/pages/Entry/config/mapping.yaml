@@ -4,6 +4,12 @@ input:
 - key
 - placeholder
 - defaultValue
+- type: icon
+  title: 前置图标
+  key: prefixIcon
+- type: icon
+  title: 后置图标
+  key: suffixIcon
 - disabled
 - readonly
 - clearable
