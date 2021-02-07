@@ -20,13 +20,28 @@
           @copy="copy(c.id)"
           @remove="remove(c.id)"
         >
+          <el-tag
+            v-if="!linkageShow(c.linkage, formData[c.key])"
+            class="tag"
+            type="danger"
+            effect="dark"
+          >
+            隐藏
+          </el-tag>
+          <el-tag
+            v-else-if="c.linkage"
+            class="tag"
+            type="success"
+            effect="dark"
+          >
+            显示
+          </el-tag>
           <el-form-item
             :prop="c.key"
             :label="c.title"
             :rules="c.rules | prepareRules"
           >
             <wardrobe
-              v-if="linkageShow(c.linkage, formData[c.key])"
               v-model="formData[c.key]"
               :config="c | prepareConfig(source)"
               :disabled="c.disabled || linkageEnable(c.linkage, formData[c.key])"
@@ -109,5 +124,9 @@ export default {
   list-style: none;
   border: 1px dashed hsla(0,0%,66.7%,.5);
   background-color: rgba(236,245,255,.3);
+}
+.tag {
+  position: absolute;
+  border-radius: 0;
 }
 </style>

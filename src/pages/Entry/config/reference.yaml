@@ -95,19 +95,22 @@ linkage:
       value: 隐藏
     - key: shown
       value: 显示
-  - type: dynamic
+  - type: textarea
     title: 条件设置
     key: condition
-    useView: true
-    components:
-    - type: select
-      title: 字段
-      key: field
-      options: []
-    - type: select
-      title: 条件
-      key: 'on'
-      options: "=|>|>=|<|<=|!="
-    - type: input
-      title: 值
-      key: value
+  # - type: dynamic
+  #   title: 条件设置
+  #   key: condition
+  #   useView: true
+  #   components:
+  #   - type: select
+  #     title: 字段
+  #     key: field
+  #     options: []
+  #   - type: select
+  #     title: 条件
+  #     key: 'on'
+  #     options: "=|>|>=|<|<=|!="
+  #   - type: input
+  #     title: 值
+  #     key: value
