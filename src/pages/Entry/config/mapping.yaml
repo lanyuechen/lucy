@@ -88,6 +88,46 @@ rate:
 - type: switch
   title: 显示分值
   key: showScore
+- type: switch
+  title: 辅助文字
+  key: showText
+- type: dynamic
+  title: 辅助文字内容
+  key: texts
+slider:
+- title
+- key
+- disabled
+- type: switch
+  title: 显示输入框
+  key: showInput
+- type: switch
+  title: 显示提示
+  key: showTooltip
+  defaultValue: true
+- type: switch
+  title: 显示断点
+  key: showStops
+- type: number
+  title: 步长
+  key: step
+slider-range:
+- title
+- key
+- disabled
+- type: switch
+  title: 显示输入框
+  key: showInput
+- type: switch
+  title: 显示提示
+  key: showTooltip
+  defaultValue: true
+- type: switch
+  title: 显示断点
+  key: showStops
+- type: number
+  title: 步长
+  key: step
 
 # date
 date: [title, key, rules, linkage]

@@ -23,8 +23,6 @@ export default {
     'wardrobe-textarea': require('./basic/Textarea').default,
     'wardrobe-switch': require('./basic/Switch').default,
     'wardrobe-upload': require('./basic/Upload').default,
-    'wardrobe-color': require('./basic/ColorPicker').default,
-    'wardrobe-rate': require('./basic/Rate').default,
 
     // 日期时间组件
     'wardrobe-date': require('./date/DatePicker').default,
@@ -40,6 +38,10 @@ export default {
 
     // 其他
     'wardrobe-icon': require('./other/Icon').default,
+    'wardrobe-color': require('./other/ColorPicker').default,
+    'wardrobe-rate': require('./other/Rate').default,
+    'wardrobe-slider': require('./other/Slider').default,
+    'wardrobe-slider-range': require('./other/SliderRange').default,
   },
   props: [
     // eslint-disable-next-line vue/require-prop-types
