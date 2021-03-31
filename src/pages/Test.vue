@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import reference from './Entry/config/reference.yaml';
+import reference from '@/config/reference.yaml';
 import Code from '@/components/Code';
 import { prepareComponents } from '@/utils/prepare-config';
 export default {

@@ -6,12 +6,12 @@
 
 <script>
 import Foundry from '@/components/Foundry';
-// import CONFIG from './config-simple.yaml';
+// import CONFIG from '@/config/config-simple.yaml';
 import prepareConfig from '@/utils/prepare-config';
-import components from './config/components.yaml';
-import form from './config/form-config.yaml';
-import mapping from './config/mapping.yaml';
-import reference from './config/reference.yaml';
+import components from '@/config/components.yaml';
+import form from '@/config/form-config.yaml';
+import mapping from '@/config/mapping.yaml';
+import reference from '@/config/reference.yaml';
 
 export default {
   name: 'App',
