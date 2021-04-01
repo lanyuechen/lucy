@@ -2,6 +2,27 @@
 
 > 超级强大的表单编辑器
 
+> 随着功能不断的加强，系统的复杂度变得越来越高，正在朝着不可控的方向发展。。。主要复杂的点在于妄图使用简洁统一的结构描述复杂的逻辑。
+
+- 左侧`自定义组件`其实就是用户编辑的表单，通过`view`组件封装成一个等价于表单项的组件，实现嵌套和复用。
+- 左侧`基础组件`、`日期时间组件`、`其他组件`等除了表现形式没有区别，只不过分个组显得更清晰。其通过`src/config/components.yaml`配置
+- 右侧`表单配置`面板通过`src/config/form-config.yaml`配置，通过`view`组件渲染出来
+- 右侧`属性配置`面板通过`src/config/mapping.yaml`配置，通过`view`组件渲染出来，配置中定义了各个组件对应的配置
+- `src/config/reference.yaml`中定义了一些通用的表单项，`属性配置`可以通过key直接饮用这里的配置
+- 表单支持主题定制，但貌似目前并不怎么完善
+
+## Todo
+
+- 主题定制
+- 打包单个文件，用于解析表单配置生成表单
+- 支持扩展组件（如果支持了，考虑将现有组件都通过扩展方式引入）
+- 表单默认值配置项智能渲染，输入框的默认值通过输入框指定，数值类型的默认值通过数值组件指定等等。
+- 支持下拉框等配置远程数据
+- 升级到vue3.x
+- React版
+- 完善文档
+- 支持json编辑器
+
 ## 数据类型
 
 ### Config 表单项配置
@@ -13,7 +34,6 @@
 | key | string | 表单项的key值，在添加到编辑器中时系统生成，用户可编辑 | - | 是 |
 | options | array | type=select,checkbox-group,radio-group等选项 | - | 否 |
 | tag | string | 表单项分类标签，用于分类或表单项属性配置项筛选等 | - | 否 |
-| props | string[] | 表单项属性配置表单 | - | 否 |
 | components | array | type=dynamic，view时的表单配置，相当于嵌套 | - | 否 |
 | useView | boolean | type=dynamic，组件子项是否折叠 | - | 否 |
 | 其它 | any | 任何值都可以写入到配置中，只要表单项组件在解析的时候使用即可，例如defaultValue、placeholder等 | - | 否 |
@@ -27,8 +47,10 @@
 | textarea | 多行文本 | 基础组件 |
 | select | 下拉框 | 基础组件 |
 | checkbox-group | 复选框组 | 基础组件 |
+| checkbox | 复选框 | 基础组件 |
 | radio-group | 单选框组 | 基础组件 |
 | switch | 开关 | 基础组件 |
+| upload | 文件上传 | 基础组件 |
 | date | 日期 | 日期时间组件 |
 | date-range | 日期范围 | 日期时间组件 |
 | time | 时间 | 日期时间组件 |
@@ -37,6 +59,11 @@
 | date-time-range | 日期时间范围 | 日期时间组件 |
 | dynamic | 动态组件 | 高级组件 |
 | view | 视图组件 | 高级组件 |
+| icon | 图表选择 | 其他组件 |
+| color | 颜色选择 | 其他组件 |
+| rate | 评分 | 其他组件 |
+| slider | 滑杆 | 其他组件 |
+| slider-range | 区间滑杆 | 其他组件 |
 
 ### FoundryConfig
 

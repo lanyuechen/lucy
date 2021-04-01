@@ -7,16 +7,15 @@ export function prepareComponents(components) {
 
 export function prepareComponent(component) {
   if (typeof component === 'string') {
-    const [type, title, tag, ...props] = component.split('|');
-    return { type, title, tag, props };
+    const [type, title, tag] = component.split('|');
+    return { type, title, tag };
   }
   const args = component.type.split('|');
   if (args.length > 1) {
-    const [type, title, tag, ...props] = args;
+    const [type, title, tag] = args;
     return {
       title,
       tag,
-      props,
       ...component,
       components: prepareComponents(component.components),
       options: prepareOptions(component.options),
