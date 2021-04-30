@@ -39,6 +39,10 @@
     <div style="width:240px;" class="mx-auto">
       <input type="text" oninput="getNewIdenticon(this.value, true)" id="identicon-input" class="mono">
     </div>
+
+    <div>
+      <button onclick="download()">下载</button>
+    </div>
   </div>
 </body>
 
@@ -49,6 +53,28 @@
   
   function getNewIdenticon(s, input) {
     document.getElementById('identicon').innerHTML = multiavatar(s);
+  }
+
+  function download() {
+    covertSVG2Image(document.querySelector('svg'), 'icon', 512, 512);
+  }
+
+  function covertSVG2Image(node, name, width, height, type = 'png') {
+    let serializer = new XMLSerializer()
+    let source = '<?xml version="1.0" standalone="no"?>\r\n' + serializer.serializeToString(node)
+    let image = new Image()
+    image.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(source)
+    let canvas = document.createElement('canvas')
+    canvas.width = width
+    canvas.height = height
+    let context = canvas.getContext('2d')
+    image.onload = function () {
+      context.drawImage(image, 0, 0)
+      let a = document.createElement('a')
+      a.download = `${name}.${type}`
+      a.href = canvas.toDataURL(`image/${type}`)
+      a.click()
+    }
   }
 </script>
 

@@ -14,7 +14,7 @@ class Guide {
   }
 
   constructor() {
-    this.interval = setTimeout(() => {
+    this.interval = setInterval(() => {
       console.log('user guide ...');
       this.loop();
     }, 2000);
